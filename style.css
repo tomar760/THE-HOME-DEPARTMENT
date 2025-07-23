@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Home Department – Secure Portal</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+
+<body>
+  <header>
+    <img src="logo.png" alt="Logo" class="logo">
+    <div>
+      <h1>Home Department</h1>
+      <p class="tagline">Ministry of Internal Security & Public Affairs</p>
+    </div>
+  </header>
+
+  <section class="hero fade-in">
+    <h2>Welcome to the Official Portal</h2>
+    <p>Empowering safety, order, and public service through innovation and responsibility.</p>
+    <div class="qr-box">
+      <img src="qr.png" alt="QR Code" class="qr-image">
+    </div>
+    <button class="animated-btn">Make Secure Payment</button>
+  </section>
+
+  <section class="features fade-in">
+    <h2>Key Features</h2>
+    <div class="feature-box">
+      <div class="feature">Digital Verification & Secure Payment</div>
+      <div class="feature">Instant Access to Government Resources</div>
+      <div class="feature">24/7 Public Support Interface</div>
+    </div>
+  </section>
+
+  <section class="services fade-in">
+    <h2>Services</h2>
+    <ul>
+      <li>Police Clearance Certificate</li>
+      <li>Public Grievance Redressal</li>
+      <li>Security Department Coordination</li>
+    </ul>
+  </section>
+
+  <section class="testimonials fade-in">
+    <h2>Testimonials</h2>
+    <div class="testimonial-slider">
+      <div class="testimonial">
+        <p>"Very fast verification and professional support."</p>
+        <h4>- Rakesh Meena</h4>
+      </div>
+      <div class="testimonial">
+        <p>"Secure and user-friendly system. Highly recommended."</p>
+        <h4>- Anita Deshmukh</h4>
+      </div>
+    </div>
+  </section>
+
+  <section class="events fade-in">
+    <h2>Recent Events</h2>
+    <div class="event-timeline">
+      <div class="event">
+        <strong>June 2025:</strong> State-wide security upgrade initiative launched.
+      </div>
+      <div class="event">
+        <strong>May 2025:</strong> Cyber Crime Prevention Workshop conducted.
+      </div>
+    </div>
+  </section>
+
+  <section class="newsletter fade-in">
+    <h2>Subscribe for Updates</h2>
+    <form class="newsletter-form">
+      <input type="email" placeholder="Enter your email" required />
+      <button type="submit">Subscribe</button>
+    </form>
+  </section>
+
+  <section class="faq fade-in">
+    <h2>Frequently Asked Questions</h2>
+    <div class="faq-list">
+      <div class="faq-item">
+        <h4>How to apply for a certificate?</h4>
+        <p>Use the secure payment button and follow instructions after verification.</p>
+      </div>
+      <div class="faq-item">
+        <h4>How can I track my request?</h4>
+        <p>You’ll receive an email/SMS with tracking details.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="team fade-in">
+    <h2>Meet the Officials</h2>
+    <div class="team-grid">
+      <div class="member">
+        <img src="officer1.jpg" alt="Officer 1">
+        <h4>Sanjay Kumar</h4>
+        <p>Joint Secretary</p>
+      </div>
+      <div class="member">
+        <img src="officer2.jpg" alt="Officer 2">
+        <h4>Anjali Verma</h4>
+        <p>Director, Operations</p>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 Home Department. All rights reserved.</p>
+    <p><a href="#">Privacy Policy</a> | <a href="#">Terms & Conditions</a></p>
+  </footer>
+</body>
+
+</html>
