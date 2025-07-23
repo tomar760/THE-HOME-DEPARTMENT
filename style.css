@@ -1,250 +1,243 @@
-/* Global Reset */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: 'Outfit', sans-serif;
-}
-
+/* style.css */
 body {
-  background-color: #0a0f1a;
-  color: #ffffff;
-  line-height: 1.6;
+  margin: 0;
+  font-family: 'Outfit', sans-serif;
+  background-color: #0f0f0f;
+  color: #eaeaea;
+  scroll-behavior: smooth;
 }
 
 header {
+  background: #0a0a0a;
+  padding: 20px 10px;
+  border-bottom: 2px solid #1f1f1f;
+}
+
+.header-container {
   display: flex;
   align-items: center;
-  padding: 20px;
-  background-color: #121c2d;
-  border-bottom: 2px solid #1f2d3d;
+  justify-content: center;
+  gap: 20px;
 }
 
 .logo {
-  width: 70px;
+  width: 80px;
   height: auto;
-  margin-right: 15px;
+  filter: brightness(1.5);
 }
 
-header h1 {
-  font-size: 2rem;
-  color: #4efc84;
+.title-box h1 {
+  margin: 0;
+  font-size: 28px;
+  color: gold;
 }
 
-header .tagline {
-  font-size: 1rem;
-  color: #88b4ff;
+.title-box .tagline {
+  font-size: 14px;
+  color: #ccc;
+  margin-top: 5px;
 }
 
-section {
+.hero {
+  text-align: center;
   padding: 60px 20px;
-  max-width: 1100px;
+  background: linear-gradient(to right, #141e30, #243b55);
+}
+
+.hero h2 {
+  font-size: 30px;
+  margin-bottom: 15px;
+}
+
+.hero p {
+  font-size: 16px;
+  max-width: 600px;
   margin: auto;
 }
 
-h2 {
-  text-align: center;
-  margin-bottom: 25px;
-  color: #4efc84;
-  font-size: 2rem;
-}
-
-p {
-  text-align: center;
-  color: #d3d3d3;
-  margin-bottom: 20px;
-}
-
-/* QR Section */
 .qr-box {
-  display: flex;
-  justify-content: center;
-  margin-top: 20px;
+  margin: 20px auto;
 }
 
 .qr-image {
-  width: 180px;
-  border: 4px solid #4efc84;
-  border-radius: 16px;
-  padding: 10px;
-  background: #1b2b3f;
+  width: 150px;
+  border: 4px solid #fff;
+  border-radius: 12px;
+  padding: 5px;
 }
 
-/* Animated Button */
 .animated-btn {
-  background-color: #4efc84;
-  color: #000;
-  padding: 12px 24px;
-  font-weight: bold;
+  background-color: gold;
   border: none;
+  padding: 12px 25px;
+  font-size: 16px;
   border-radius: 30px;
   cursor: pointer;
-  transition: all 0.3s ease;
-  display: block;
-  margin: 30px auto 0;
+  transition: transform 0.3s ease;
+  margin-top: 15px;
 }
 
 .animated-btn:hover {
-  transform: scale(1.05);
-  background-color: #66ffa1;
+  transform: scale(1.1);
 }
 
-/* Features */
-.features .feature-box {
+.features,
+.services,
+.testimonials,
+.events,
+.newsletter,
+.faq,
+.team {
+  padding: 50px 20px;
+  text-align: center;
+  background-color: #101010;
+  border-top: 1px solid #1c1c1c;
+}
+
+.features h2,
+.services h2,
+.testimonials h2,
+.events h2,
+.newsletter h2,
+.faq h2,
+.team h2 {
+  font-size: 26px;
+  margin-bottom: 30px;
+  color: #ffd700;
+}
+
+.feature-box {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-around;
-  gap: 20px;
+  justify-content: center;
+  gap: 30px;
 }
 
-.features .feature {
-  flex: 1 1 250px;
-  background-color: #1a2333;
+.feature {
+  width: 300px;
+  background: #1e1e1e;
   padding: 20px;
   border-radius: 12px;
-  border-left: 4px solid #4efc84;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
 }
 
-/* Services */
 .services ul {
-  list-style: none;
-  text-align: center;
+  list-style-type: none;
+  padding: 0;
+  max-width: 600px;
+  margin: auto;
 }
 
 .services li {
-  background-color: #1a2333;
-  margin: 10px auto;
-  padding: 10px 20px;
-  max-width: 500px;
-  border-left: 4px solid #4efc84;
+  background: #222;
+  margin: 10px 0;
+  padding: 12px;
   border-radius: 8px;
 }
 
-/* Testimonials */
 .testimonial-slider {
   display: flex;
-  overflow-x: auto;
-  gap: 20px;
-  scroll-snap-type: x mandatory;
-  padding-bottom: 10px;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px;
 }
 
 .testimonial {
-  min-width: 300px;
-  background: #1a2333;
+  background: #1a1a1a;
   padding: 20px;
-  border-radius: 12px;
-  scroll-snap-align: center;
+  width: 300px;
+  border-radius: 10px;
+  font-style: italic;
 }
 
-/* Events */
-.event-timeline .event {
-  background-color: #1a2333;
-  padding: 20px;
-  margin-bottom: 20px;
-  border-left: 4px solid #88b4ff;
-  border-radius: 8px;
+.events .event {
+  margin: 20px auto;
+  max-width: 500px;
+  padding: 15px;
+  background: #1e1e1e;
+  border-radius: 10px;
 }
 
-/* Newsletter */
 .newsletter-form {
   display: flex;
   justify-content: center;
   gap: 10px;
-  flex-wrap: wrap;
+  margin-top: 20px;
 }
 
-.newsletter-form input[type="email"] {
+.newsletter-form input {
   padding: 10px;
-  border-radius: 8px;
+  border-radius: 6px;
   border: none;
   width: 250px;
 }
 
 .newsletter-form button {
   padding: 10px 20px;
-  background-color: #4efc84;
+  background-color: gold;
   border: none;
-  border-radius: 8px;
-  color: #000;
-  font-weight: bold;
+  border-radius: 6px;
   cursor: pointer;
 }
 
-/* FAQ */
+.faq-list {
+  max-width: 700px;
+  margin: auto;
+  text-align: left;
+}
+
 .faq-item {
-  background-color: #1a2333;
-  padding: 20px;
-  margin-bottom: 15px;
+  margin-bottom: 20px;
+  background: #1a1a1a;
+  padding: 15px;
   border-radius: 8px;
 }
 
-/* Team */
 .team-grid {
   display: flex;
-  flex-wrap: wrap;
-  gap: 20px;
   justify-content: center;
+  gap: 30px;
+  flex-wrap: wrap;
 }
 
 .member {
-  background-color: #1a2333;
-  padding: 20px;
-  text-align: center;
+  width: 220px;
+  background: #1e1e1e;
   border-radius: 10px;
-  width: 200px;
+  padding: 15px;
+  text-align: center;
 }
 
 .member img {
   width: 100px;
-  height: 100px;
   border-radius: 50%;
   margin-bottom: 10px;
 }
 
-/* Footer */
 footer {
-  background-color: #121c2d;
-  padding: 20px;
+  background: #0a0a0a;
+  color: #aaa;
   text-align: center;
-  font-size: 0.9rem;
-  color: #ccc;
+  padding: 20px 10px;
+  font-size: 14px;
 }
 
 footer a {
-  color: #88b4ff;
+  color: #ccc;
   text-decoration: none;
-  margin: 0 10px;
+  margin: 0 8px;
 }
 
-/* Scroll Animations */
+footer a:hover {
+  color: gold;
+}
+
 .fade-in {
   opacity: 0;
-  transform: translateY(20px);
-  animation: fadeIn 1s ease forwards;
+  animation: fadeIn ease 1s forwards;
 }
 
 @keyframes fadeIn {
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-/* Responsive */
-@media screen and (max-width: 768px) {
-  header {
-    flex-direction: column;
-    text-align: center;
-  }
-
-  .features .feature-box,
-  .team-grid {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .newsletter-form {
-    flex-direction: column;
-  }
+  0% { opacity: 0; transform: translateY(30px); }
+  100% { opacity: 1; transform: translateY(0); }
 }
