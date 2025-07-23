@@ -1,140 +1,250 @@
-<!DOCTYPE html>
-<html lang="en">
+/* Global Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Outfit', sans-serif;
+}
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Home Department – Official Portal</title>
-  <link rel="stylesheet" href="style.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600&display=swap" rel="stylesheet">
-</head>
+body {
+  background-color: #0a0f1a;
+  color: #ffffff;
+  line-height: 1.6;
+}
 
-<body>
-  <header>
-    <img src="logo.jpg" alt="Logo" class="logo" />
-    <div>
-      <h1>Home Department</h1>
-      <p class="tagline">Securing Families, Building Trust</p>
-    </div>
-  </header>
+header {
+  display: flex;
+  align-items: center;
+  padding: 20px;
+  background-color: #121c2d;
+  border-bottom: 2px solid #1f2d3d;
+}
 
-  <section class="hero fade-in">
-    <h2>Welcome to the Official Portal</h2>
-    <p>Your trusted source for internal security, emergency services, and public welfare initiatives.</p>
-    <div class="qr-box">
-      <img src="qr.png" alt="QR Code" class="qr-image" />
-    </div>
-    <button class="animated-btn">Secure Payment ₹7</button>
-  </section>
+.logo {
+  width: 70px;
+  height: auto;
+  margin-right: 15px;
+}
 
-  <section class="features fade-in">
-    <h2>Key Functions</h2>
-    <div class="feature-box">
-      <div class="feature">
-        <h3>Law & Order</h3>
-        <p>Ensuring public peace, coordination with police forces, and managing civic emergencies.</p>
-      </div>
-      <div class="feature">
-        <h3>Disaster Management</h3>
-        <p>Rapid response to natural disasters and emergencies across all regions.</p>
-      </div>
-      <div class="feature">
-        <h3>Cyber Surveillance</h3>
-        <p>Tracking digital threats and online security through smart AI monitoring.</p>
-      </div>
-    </div>
-  </section>
+header h1 {
+  font-size: 2rem;
+  color: #4efc84;
+}
 
-  <section class="services fade-in">
-    <h2>Our Services</h2>
-    <ul>
-      <li>Public Grievance Redressal</li>
-      <li>Online FIR Filing</li>
-      <li>Citizen Safety Awareness Programs</li>
-      <li>Disaster Emergency Response Planning</li>
-    </ul>
-  </section>
+header .tagline {
+  font-size: 1rem;
+  color: #88b4ff;
+}
 
-  <section class="testimonials fade-in">
-    <h2>What Citizens Say</h2>
-    <div class="testimonial-slider">
-      <div class="testimonial">
-        <p>"Very fast response during emergency situations. Grateful for the team!"</p>
-        <h4>– Ramesh Verma, Delhi</h4>
-      </div>
-      <div class="testimonial">
-        <p>"Their cybercrime support helped me recover my lost data quickly."</p>
-        <h4>– Sneha Jha, Patna</h4>
-      </div>
-      <div class="testimonial">
-        <p>"Quick and polite support during a flood evacuation drive. Impressed!"</p>
-        <h4>– Abdul Khan, Surat</h4>
-      </div>
-    </div>
-  </section>
+section {
+  padding: 60px 20px;
+  max-width: 1100px;
+  margin: auto;
+}
 
-  <section class="events fade-in">
-    <h2>Upcoming Events</h2>
-    <div class="event-timeline">
-      <div class="event">
-        <h4>August 15, 2025 – Independence Day Parade</h4>
-        <p>Security drills and flag march at Rajpath, Delhi.</p>
-      </div>
-      <div class="event">
-        <h4>September 5, 2025 – Cyber Awareness Drive</h4>
-        <p>National campaign launch for online safety.</p>
-      </div>
-    </div>
-  </section>
+h2 {
+  text-align: center;
+  margin-bottom: 25px;
+  color: #4efc84;
+  font-size: 2rem;
+}
 
-  <section class="newsletter fade-in">
-    <h2>Join Our Mission</h2>
-    <p>Stay updated with safety tips, government schemes, and alerts.</p>
-    <div class="newsletter-form">
-      <input type="email" placeholder="Enter your email" />
-      <button>Subscribe</button>
-    </div>
-  </section>
+p {
+  text-align: center;
+  color: #d3d3d3;
+  margin-bottom: 20px;
+}
 
-  <section class="faq fade-in">
-    <h2>Frequently Asked Questions</h2>
-    <div class="faq-list">
-      <div class="faq-item">
-        <h4>How to file an online complaint?</h4>
-        <p>Go to the Services section and click on "Online FIR Filing".</p>
-      </div>
-      <div class="faq-item">
-        <h4>Is payment required for any services?</h4>
-        <p>Most services are free. Nominal charges apply for premium reports.</p>
-      </div>
-    </div>
-  </section>
+/* QR Section */
+.qr-box {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
 
-  <section class="team fade-in">
-    <h2>Our Leadership</h2>
-    <div class="team-grid">
-      <div class="member">
-        <img src="director.png" alt="Director">
-        <h4>R. K. Mehta</h4>
-        <p>Director General</p>
-      </div>
-      <div class="member">
-        <img src="security-head.png" alt="Security Head">
-        <h4>Anita Sharma</h4>
-        <p>Chief Security Officer</p>
-      </div>
-    </div>
-  </section>
+.qr-image {
+  width: 180px;
+  border: 4px solid #4efc84;
+  border-radius: 16px;
+  padding: 10px;
+  background: #1b2b3f;
+}
 
-  <footer>
-    <p>&copy; 2025 Home Department. All rights reserved.</p>
-    <p>
-      <a href="#">Privacy Policy</a> |
-      <a href="#">Terms of Use</a> |
-      <a href="#">Refund Policy</a> |
-      <a href="#">Contact</a>
-    </p>
-  </footer>
-</body>
+/* Animated Button */
+.animated-btn {
+  background-color: #4efc84;
+  color: #000;
+  padding: 12px 24px;
+  font-weight: bold;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: block;
+  margin: 30px auto 0;
+}
 
-</html>
+.animated-btn:hover {
+  transform: scale(1.05);
+  background-color: #66ffa1;
+}
+
+/* Features */
+.features .feature-box {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  gap: 20px;
+}
+
+.features .feature {
+  flex: 1 1 250px;
+  background-color: #1a2333;
+  padding: 20px;
+  border-radius: 12px;
+  border-left: 4px solid #4efc84;
+}
+
+/* Services */
+.services ul {
+  list-style: none;
+  text-align: center;
+}
+
+.services li {
+  background-color: #1a2333;
+  margin: 10px auto;
+  padding: 10px 20px;
+  max-width: 500px;
+  border-left: 4px solid #4efc84;
+  border-radius: 8px;
+}
+
+/* Testimonials */
+.testimonial-slider {
+  display: flex;
+  overflow-x: auto;
+  gap: 20px;
+  scroll-snap-type: x mandatory;
+  padding-bottom: 10px;
+}
+
+.testimonial {
+  min-width: 300px;
+  background: #1a2333;
+  padding: 20px;
+  border-radius: 12px;
+  scroll-snap-align: center;
+}
+
+/* Events */
+.event-timeline .event {
+  background-color: #1a2333;
+  padding: 20px;
+  margin-bottom: 20px;
+  border-left: 4px solid #88b4ff;
+  border-radius: 8px;
+}
+
+/* Newsletter */
+.newsletter-form {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.newsletter-form input[type="email"] {
+  padding: 10px;
+  border-radius: 8px;
+  border: none;
+  width: 250px;
+}
+
+.newsletter-form button {
+  padding: 10px 20px;
+  background-color: #4efc84;
+  border: none;
+  border-radius: 8px;
+  color: #000;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+/* FAQ */
+.faq-item {
+  background-color: #1a2333;
+  padding: 20px;
+  margin-bottom: 15px;
+  border-radius: 8px;
+}
+
+/* Team */
+.team-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+
+.member {
+  background-color: #1a2333;
+  padding: 20px;
+  text-align: center;
+  border-radius: 10px;
+  width: 200px;
+}
+
+.member img {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  margin-bottom: 10px;
+}
+
+/* Footer */
+footer {
+  background-color: #121c2d;
+  padding: 20px;
+  text-align: center;
+  font-size: 0.9rem;
+  color: #ccc;
+}
+
+footer a {
+  color: #88b4ff;
+  text-decoration: none;
+  margin: 0 10px;
+}
+
+/* Scroll Animations */
+.fade-in {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeIn 1s ease forwards;
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive */
+@media screen and (max-width: 768px) {
+  header {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .features .feature-box,
+  .team-grid {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .newsletter-form {
+    flex-direction: column;
+  }
+}
