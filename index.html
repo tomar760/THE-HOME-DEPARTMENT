@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /> 
     <title>Home Department – Official Portal</title>
     <link rel="stylesheet" href="style.css" />
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600&display=swap" rel="stylesheet">
@@ -41,7 +41,7 @@
 
         <button id="simulatePaymentBtn" class="animated-btn main-cta">Secure Payment</button>
 
-        <button id="showReceiptBtn" class="animated-btn secondary-btn" style="display: none;">Watch Reciept</button>
+        <button id="showReceiptBtn" class="animated-btn secondary-btn" style="display: none;">Watch Receipt</button>
 
         <div id="receiptDisplay" class="receipt-display" style="display: none;">
             <h3 class="receipt-title"><i class="fas fa-check-circle"></i> Payment Successful!</h3>
@@ -266,9 +266,12 @@
             const nextBtn = document.getElementById('nextTestimonial');
             let currentIndex = 0;
             // Ensure there are testimonials before calculating scroll amount
-            const scrollAmount = testimonials.length > 0 ? testimonials[0].offsetWidth + 20 : 320; 
+            // Changed this to use scrollWidth for more accurate sliding on smaller screens
+            let scrollAmount = testimonials.length > 0 ? testimonials[0].offsetWidth + 20 : 320; 
 
             function updateSlider() {
+                // Dynamically calculate scroll amount to adapt to screen size changes
+                scrollAmount = testimonials.length > 0 ? testimonials[0].offsetWidth + 20 : 320; 
                 testimonialSlider.scrollTo({
                     left: currentIndex * scrollAmount,
                     behavior: 'smooth'
@@ -303,6 +306,9 @@
                         updateSlider();
                     }, 7000);
                 });
+
+                // Add resize listener to update scrollAmount
+                window.addEventListener('resize', updateSlider);
             } else {
                 // Hide slider navigation if no testimonials
                 document.querySelector('.slider-nav').style.display = 'none';
