@@ -6,60 +6,76 @@
     <title>Home Department – Official Portal</title>
     <link rel="stylesheet" href="style.css" />
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
     <header class="fade-in">
         <div class="header-container">
-            <img src="logo.jpg" alt="Logo" class="logo" />
+            <img src="logo.jpg" alt="Home Department Logo" class="logo" />
             <div class="title-box">
                 <h1>Home Department</h1>
                 <p class="tagline">Committed to Public Safety & Security</p>
             </div>
         </div>
+        <nav>
+            <ul>
+                <li><a href="#hero">Home</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#about">About Us</a></li>
+                <li><a href="#faq">FAQ</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
     </header>
 
-    <section class="hero fade-in">
+    <section class="hero fade-in" id="hero">
         <h2>Welcome to the Official Portal</h2>
         <p>Your trusted source for internal security, emergency services, and public welfare initiatives.</p>
+
+        <h3 class="scan-pay-text">Scan to Pay ₹7</h3>
         <div class="qr-box">
-            <img src="qr.png" alt="QR Code" class="qr-image" />
+            <img src="qr.png" alt="QR Code for Payment" class="qr-image no-border" />
         </div>
-        <button id="showReceiptBtn" class="animated-btn" style="margin-top: 20px;">Receipt Dekhein</button>
+
+        <button id="simulatePaymentBtn" class="animated-btn main-cta">Secure Payment ₹7</button>
+
+        <button id="showReceiptBtn" class="animated-btn" disabled style="margin-top: 20px;">Receipt Dekhein</button>
 
         <div id="receiptDisplay" class="receipt-display">
-            <h3 class="receipt-title">Payment Successful!</h3>
+            <h3 class="receipt-title"><i class="fas fa-check-circle"></i> Payment Successful!</h3>
             <img src="receipt.jpg" alt="Payment Receipt" class="receipt-image" />
             <p class="receipt-note">Yeh aapki safalta-poorvak ki gayi transaction ki receipt hai. <br> Dhanyawad!</p>
         </div>
-
-        <button class="animated-btn">Secure Payment ₹7</button>
     </section>
 
     <section class="features fade-in">
         <h2>Key Functions</h2>
         <div class="feature-box">
             <div class="feature">
+                <i class="fas fa-gavel feature-icon"></i>
                 <h3>Law & Order</h3>
                 <p>Ensuring public peace, coordination with police forces, and managing civic emergencies.</p>
             </div>
             <div class="feature">
+                <i class="fas fa-house-damage feature-icon"></i>
                 <h3>Disaster Management</h3>
                 <p>Rapid response to natural disasters and emergencies across all regions.</p>
             </div>
             <div class="feature">
+                <i class="fas fa-shield-alt feature-icon"></i>
                 <h3>Cyber Surveillance</h3>
                 <p>Tracking digital threats and online security through smart AI monitoring.</p>
             </div>
         </div>
     </section>
 
-    <section class="services fade-in">
+    <section class="services fade-in" id="services">
         <h2>Our Services</h2>
         <ul>
-            <li>Public Grievance Redressal</li>
-            <li>Online FIR Filing</li>
-            <li>Citizen Safety Awareness Programs</li>
-            <li>Disaster Emergency Response Planning</li>
+            <li><i class="fas fa-comments service-icon"></i> Public Grievance Redressal</li>
+            <li><i class="fas fa-file-alt service-icon"></i> Online FIR Filing</li>
+            <li><i class="fas fa-hands-helping service-icon"></i> Citizen Safety Awareness Programs</li>
+            <li><i class="fas fa-hospital-alt service-icon"></i> Disaster Emergency Response Planning</li>
         </ul>
     </section>
 
@@ -78,6 +94,10 @@
                 <p>"Quick and polite support during a flood evacuation drive. Impressed!"</p>
                 <h4>– Abdul Khan, Surat</h4>
             </div>
+        </div>
+        <div class="slider-nav">
+            <button id="prevTestimonial" class="nav-btn"><i class="fas fa-chevron-left"></i></button>
+            <button id="nextTestimonial" class="nav-btn"><i class="fas fa-chevron-right"></i></button>
         </div>
     </section>
 
@@ -99,22 +119,38 @@
         <h2>Join Our Mission</h2>
         <p>Stay updated with safety tips, government schemes, and alerts.</p>
         <div class="newsletter-form">
-            <input type="email" placeholder="Enter your email" />
+            <input type="email" placeholder="Enter your email" aria-label="Enter your email" />
             <button>Subscribe</button>
         </div>
     </section>
 
-    <section class="faq fade-in">
+    <section class="faq fade-in" id="faq">
         <h2>Frequently Asked Questions</h2>
         <div class="faq-list">
             <div class="faq-item">
-                <h4>How to file an online complaint?</h4>
-                <p>Go to the Services section and click on "Online FIR Filing".</p>
+                <h4>How to file an online complaint? <i class="fas fa-plus faq-toggle-icon"></i></h4>
+                <p class="faq-answer">Go to the Services section and click on "Online FIR Filing".</p>
             </div>
             <div class="faq-item">
-                <h4>Is payment required for any services?</h4>
-                <p>Most services are free. Nominal charges apply for premium reports.</p>
+                <h4>Is payment required for any services? <i class="fas fa-plus faq-toggle-icon"></i></h4>
+                <p class="faq-answer">Most services are free. Nominal charges apply for premium reports.</p>
             </div>
+            <div class="faq-item">
+                <h4>How can I report a cybercrime? <i class="fas fa-plus faq-toggle-icon"></i></h4>
+                <p class="faq-answer">You can report cybercrime through our "Online FIR Filing" service or contact our helpline.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="about fade-in" id="about">
+        <h2>About Us</h2>
+        <p>The Home Department is dedicated to ensuring internal security, maintaining law and order, and fostering a safe environment for all citizens. Our mission is to protect lives, safeguard property, and uphold justice through proactive measures and rapid response.</p>
+        <p>We work tirelessly to enhance public safety, manage emergencies effectively, and combat new age threats like cybercrime using advanced technology and a highly trained workforce.</p>
+        <div class="mission-vision">
+            <h3>Our Mission</h3>
+            <p>To secure the nation by fostering peace, preventing crime, and responding effectively to all forms of emergencies.</p>
+            <h3>Our Vision</h3>
+            <p>To be the most trusted and efficient public safety agency, safeguarding the future of our citizens.</p>
         </div>
     </section>
 
@@ -122,57 +158,163 @@
         <h2>Our Leadership</h2>
         <div class="team-grid">
             <div class="member">
-                <img src="logo.jpg" alt="Official Logo">
+                <img src="logo.jpg" alt="Official Emblem">
                 <h4>Official Emblem</h4>
                 <p>Government Identity</p>
             </div>
             <div class="member">
-                <img src="director.png" alt="Director">
+                <img src="director.png" alt="Director General R. K. Mehta">
                 <h4>R. K. Mehta</h4>
                 <p>Director General</p>
             </div>
             <div class="member">
-                <img src="security-head.png" alt="Security Head">
+                <img src="security-head.png" alt="Chief Security Officer Anita Sharma">
                 <h4>Anita Sharma</h4>
                 <p>Chief Security Officer</p>
             </div>
         </div>
     </section>
 
-    <footer>
+    <footer id="contact">
         <p>&copy; 2025 Home Department. All rights reserved.</p>
         <p>
             <a href="privacy.html">Privacy Policy</a> |
             <a href="terms.html">Terms of Use</a> |
             <a href="refund.html">Refund Policy</a> |
-            <a href="contact.html">Contact</a>
+            <a href="contact.html">Contact Us</a>
         </p>
+        <div class="contact-info">
+            <p><i class="fas fa-phone-alt"></i> Helpline: +91-12345-67890</p>
+            <p><i class="fas fa-envelope"></i> Email: info@homedepartment.gov.in</p>
+            <p><i class="fas fa-map-marker-alt"></i> Address: 123, Central Plaza, Delhi - 110001, India</p>
+        </div>
     </footer>
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
+            const simulatePaymentBtn = document.getElementById('simulatePaymentBtn');
             const showReceiptBtn = document.getElementById('showReceiptBtn');
             const receiptDisplay = document.getElementById('receiptDisplay');
-            let timeoutId; // To store the timeout ID
+            let receiptTimeoutId; // To store the timeout ID for receipt auto-hide
 
-            // Initially hide the receipt
-            receiptDisplay.style.display = 'none';
+            // --- Initial State ---
+            receiptDisplay.style.display = 'none'; // Hide receipt initially
+            showReceiptBtn.disabled = true; // Disable receipt button initially
 
+            // --- Payment Simulation Logic ---
+            simulatePaymentBtn.addEventListener('click', function() {
+                // Clear any existing receipt timeout if button is clicked quickly again
+                clearTimeout(receiptTimeoutId);
+
+                // Simulate payment success
+                simulatePaymentBtn.textContent = 'Payment Done! Processing...';
+                simulatePaymentBtn.disabled = true; // Disable payment button temporarily
+
+                // After a short delay (e.g., 2 seconds), enable receipt button
+                setTimeout(() => {
+                    simulatePaymentBtn.textContent = 'Payment Successful!';
+                    showReceiptBtn.disabled = false; // Enable receipt button
+                    showReceiptBtn.focus(); // Optional: direct user's attention to the receipt button
+                }, 2000); // Simulate 2-second payment processing time
+            });
+
+            // --- Receipt Display Logic ---
             showReceiptBtn.addEventListener('click', function() {
                 // Clear any existing timeout to prevent conflicts if clicked multiple times quickly
-                clearTimeout(timeoutId);
+                clearTimeout(receiptTimeoutId);
 
                 // Show the receipt
                 receiptDisplay.style.display = 'block';
                 showReceiptBtn.textContent = 'Receipt Dikha Raha Hai...';
-                showReceiptBtn.disabled = true; // Disable button to prevent multiple clicks
+                showReceiptBtn.disabled = true; // Disable receipt button during display
 
                 // Hide the receipt after 5 seconds
-                timeoutId = setTimeout(() => {
+                receiptTimeoutId = setTimeout(() => {
                     receiptDisplay.style.display = 'none';
                     showReceiptBtn.textContent = 'Receipt Dekhein'; // Reset button text
-                    showReceiptBtn.disabled = false; // Enable button again
+                    showReceiptBtn.disabled = false; // Enable receipt button again
+                    simulatePaymentBtn.textContent = 'Secure Payment ₹7'; // Reset payment button text
+                    simulatePaymentBtn.disabled = false; // Enable payment button again
                 }, 5000); // 5000 milliseconds = 5 seconds
+            });
+
+            // --- Smooth Scrolling for Navigation ---
+            document.querySelectorAll('nav ul li a').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    document.querySelector(this.getAttribute('href')).scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                });
+            });
+
+            // --- Testimonial Slider Automation & Navigation ---
+            const testimonialSlider = document.querySelector('.testimonial-slider');
+            const testimonials = document.querySelectorAll('.testimonial');
+            const prevBtn = document.getElementById('prevTestimonial');
+            const nextBtn = document.getElementById('nextTestimonial');
+            let currentIndex = 0;
+            const scrollAmount = testimonials[0] ? testimonials[0].offsetWidth + 20 : 320; // testimonial width + gap
+
+            function updateSlider() {
+                testimonialSlider.scrollTo({
+                    left: currentIndex * scrollAmount,
+                    behavior: 'smooth'
+                });
+            }
+
+            // Next button
+            nextBtn.addEventListener('click', () => {
+                currentIndex = (currentIndex + 1) % testimonials.length;
+                updateSlider();
+            });
+
+            // Previous button
+            prevBtn.addEventListener('click', () => {
+                currentIndex = (currentIndex - 1 + testimonials.length) % testimonials.length;
+                updateSlider();
+            });
+
+            // Optional: Auto-slide testimonials
+            let autoSlideInterval = setInterval(() => {
+                currentIndex = (currentIndex + 1) % testimonials.length;
+                updateSlider();
+            }, 7000); // Change testimonial every 7 seconds
+
+            // Pause auto-slide on hover
+            testimonialSlider.addEventListener('mouseover', () => clearInterval(autoSlideInterval));
+            testimonialSlider.addEventListener('mouseleave', () => {
+                autoSlideInterval = setInterval(() => {
+                    currentIndex = (currentIndex + 1) % testimonials.length;
+                    updateSlider();
+                }, 7000);
+            });
+
+            // --- FAQ Toggle ---
+            document.querySelectorAll('.faq-item h4').forEach(header => {
+                header.addEventListener('click', () => {
+                    const faqItem = header.parentElement;
+                    const answer = faqItem.querySelector('.faq-answer');
+                    const icon = header.querySelector('.faq-toggle-icon');
+
+                    if (answer.style.display === 'block') {
+                        answer.style.display = 'none';
+                        icon.classList.remove('fa-minus');
+                        icon.classList.add('fa-plus');
+                    } else {
+                        // Close all other open FAQs
+                        document.querySelectorAll('.faq-answer').forEach(ans => {
+                            if (ans !== answer) {
+                                ans.style.display = 'none';
+                                ans.parentElement.querySelector('.faq-toggle-icon').classList.remove('fa-minus');
+                                ans.parentElement.querySelector('.faq-toggle-icon').classList.add('fa-plus');
+                            }
+                        });
+                        answer.style.display = 'block';
+                        icon.classList.remove('fa-plus');
+                        icon.classList.add('fa-minus');
+                    }
+                });
             });
         });
     </script>
