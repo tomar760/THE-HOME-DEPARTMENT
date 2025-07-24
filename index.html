@@ -34,12 +34,12 @@
 
         <h3 class="scan-pay-text">Scan to Pay ₹7</h3>
         <div class="qr-box">
-            <img src="qr.png" alt="QR Code for Payment" class="qr-image no-border" />
+            <img src="qr.png" alt="QR Code for Payment" class="qr-image" />
         </div>
 
         <button id="simulatePaymentBtn" class="animated-btn main-cta">Secure Payment ₹7</button>
 
-        <button id="showReceiptBtn" class="animated-btn" disabled style="margin-top: 20px;">Receipt Dekhein</button>
+        <button id="showReceiptBtn" class="animated-btn" style="margin-top: 20px; display: none;">Receipt Dekhein</button>
 
         <div id="receiptDisplay" class="receipt-display">
             <h3 class="receipt-title"><i class="fas fa-check-circle"></i> Payment Successful!</h3>
@@ -199,7 +199,7 @@
 
             // --- Initial State ---
             receiptDisplay.style.display = 'none'; // Hide receipt initially
-            showReceiptBtn.disabled = true; // Disable receipt button initially
+            showReceiptBtn.style.display = 'none'; // Hide receipt button initially
 
             // --- Payment Simulation Logic ---
             simulatePaymentBtn.addEventListener('click', function() {
@@ -207,12 +207,14 @@
                 clearTimeout(receiptTimeoutId);
 
                 // Simulate payment success
-                simulatePaymentBtn.textContent = 'Payment Done! Processing...';
+                simulatePaymentBtn.textContent = 'Processing Payment...';
                 simulatePaymentBtn.disabled = true; // Disable payment button temporarily
 
-                // After a short delay (e.g., 2 seconds), enable receipt button
+                // After a short delay (e.g., 2 seconds), enable receipt button and show it
                 setTimeout(() => {
-                    simulatePaymentBtn.textContent = 'Payment Successful!';
+                    simulatePaymentBtn.textContent = 'Payment Complete!';
+                    simulatePaymentBtn.style.display = 'none'; // Hide payment button
+                    showReceiptBtn.style.display = 'block'; // Show receipt button
                     showReceiptBtn.disabled = false; // Enable receipt button
                     showReceiptBtn.focus(); // Optional: direct user's attention to the receipt button
                 }, 2000); // Simulate 2-second payment processing time
@@ -233,7 +235,9 @@
                     receiptDisplay.style.display = 'none';
                     showReceiptBtn.textContent = 'Receipt Dekhein'; // Reset button text
                     showReceiptBtn.disabled = false; // Enable receipt button again
+                    showReceiptBtn.style.display = 'none'; // Hide receipt button again
                     simulatePaymentBtn.textContent = 'Secure Payment ₹7'; // Reset payment button text
+                    simulatePaymentBtn.style.display = 'block'; // Show payment button again
                     simulatePaymentBtn.disabled = false; // Enable payment button again
                 }, 5000); // 5000 milliseconds = 5 seconds
             });
@@ -301,6 +305,7 @@
                         answer.style.display = 'none';
                         icon.classList.remove('fa-minus');
                         icon.classList.add('fa-plus');
+                        faqItem.classList.remove('active'); // Remove active class
                     } else {
                         // Close all other open FAQs
                         document.querySelectorAll('.faq-answer').forEach(ans => {
@@ -308,11 +313,13 @@
                                 ans.style.display = 'none';
                                 ans.parentElement.querySelector('.faq-toggle-icon').classList.remove('fa-minus');
                                 ans.parentElement.querySelector('.faq-toggle-icon').classList.add('fa-plus');
+                                ans.parentElement.classList.remove('active');
                             }
                         });
                         answer.style.display = 'block';
                         icon.classList.remove('fa-plus');
                         icon.classList.add('fa-minus');
+                        faqItem.classList.add('active'); // Add active class
                     }
                 });
             });
