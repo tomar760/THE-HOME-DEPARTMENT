@@ -5,37 +5,127 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Contact Us – Home Department</title>
   <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
-  <header><h1>Contact Us</h1></header>
+  <header class="fade-in">
+    <div class="header-content">
+      <div class="header-logo-title">
+        <img src="logo.jpg" alt="Home Department Logo" class="logo" />
+        <div class="title-box">
+          <h1>Contact Us</h1>
+          <p class="tagline">We're here to help.</p>
+        </div>
+      </div>
+    </div>
+  </header>
+
   <main>
-    <section>
-      <p>If you have any questions, concerns, or need support, feel free to contact us through the following ways:</p>
+    <section class="policy-section fade-in">
+      <p class="intro-paragraph">Whether you have questions, feedback, or require assistance with any of our services, the **Home Department** is here to help. Please choose the most convenient method to reach out to us. We aim to respond to all inquiries as promptly as possible.</p>
 
-      <h2>Official Email</h2>
-      <p><strong>support@homedept.in</strong></p>
+      <h2>---</h2>
+      <h2>1. General Inquiries & Support</h2>
+      <p>For general questions, service-related support, or technical issues, please use the following contact details:</p>
 
-      <h2>Office Address</h2>
-      <p>Home Department HQ,<br>New Delhi – 110001, India</p>
+      <div class="contact-info-block">
+        <p class="contact-detail"><i class="fas fa-envelope"></i> **Email:** <a href="mailto:info@homedepartment.gov.in">info@homedepartment.gov.in</a></p>
+        <p class="contact-sub-detail">*(For general queries, feedback, and non-urgent matters. Please allow 1-2 business days for a response.)*</p>
 
-      <h2>Phone</h2>
-      <p>+91-90000-12345 (Monday to Friday, 10 AM – 5 PM)</p>
+        <p class="contact-detail"><i class="fas fa-phone-alt"></i> **Helpline:** +91-12345-67890</p>
+        <p class="contact-sub-detail">*(Available Monday to Friday, 10:00 AM to 5:00 PM IST, excluding public holidays. For urgent assistance related to security or emergencies, please refer to Section 2.)*</p>
+      </div>
 
-      <h2>Feedback Form</h2>
-      <form action="#" method="POST">
-        <label>Name:</label><br>
-        <input type="text" name="name" required><br><br>
+      <h2>---</h2>
+      <h2>2. Emergency & Critical Support</h2>
+      <p>In case of emergencies, serious incidents, or critical security matters, please use the dedicated emergency channels:</p>
 
-        <label>Email:</label><br>
-        <input type="email" name="email" required><br><br>
+      <div class="contact-info-block emergency">
+        <p class="contact-detail"><i class="fas fa-exclamation-triangle"></i> **Emergency Helpline (24/7):** [Insert 24/7 Emergency Number Here, e.g., 112 or 100]</p>
+        <p class="contact-sub-detail">*(For immediate assistance related to crime, disaster, or public safety threats. This line is monitored round the clock.)*</p>
+        <p class="contact-detail"><i class="fas fa-bug"></i> **Cybercrime Reporting:** [Insert Cybercrime Helpline Number/Portal Link Here]</p>
+        <p class="contact-sub-detail">*(Dedicated line/portal for reporting cyber fraud, online scams, or digital security breaches.)*</p>
+      </div>
+      <p class="note">**Important:** Please use emergency lines ONLY for genuine emergencies. Misuse can hinder assistance to those in critical need.</p>
 
-        <label>Message:</label><br>
-        <textarea name="message" rows="5" required></textarea><br><br>
 
-        <button type="submit">Send Message</button>
+      <h2>---</h2>
+      <h2>3. Office Address & Visiting Hours</h2>
+      <p>You can visit our headquarters during official working hours. Please note that appointments may be required for certain services.</p>
+
+      <div class="contact-info-block address">
+        <p class="contact-detail"><i class="fas fa-map-marker-alt"></i> **Home Department Headquarters**</p>
+        <p class="contact-address-line">123, Central Plaza,</p>
+        <p class="contact-address-line">Near Parliament Street,</p>
+        <p class="contact-address-line">New Delhi – 110001,</p>
+        <p class="contact-address-line">India</p>
+        <p class="contact-sub-detail">*(Visiting Hours: Monday to Friday, 10:00 AM to 4:00 PM IST. Please call ahead to confirm if an appointment is necessary.)*</p>
+      </div>
+
+      <h2>---</h2>
+      <h2>4. Online Feedback & Inquiry Form</h2>
+      <p>For non-urgent inquiries, suggestions, or general feedback, please fill out the form below. We will get back to you as soon as possible.</p>
+
+      <form action="#" method="POST" class="contact-form">
+        <div class="form-group">
+          <label for="name">Your Name:</label>
+          <input type="text" id="name" name="name" required placeholder="Enter your full name">
+        </div>
+
+        <div class="form-group">
+          <label for="email">Your Email Address:</label>
+          <input type="email" id="email" name="email" required placeholder="name@example.com">
+        </div>
+
+        <div class="form-group">
+          <label for="subject">Subject:</label>
+          <input type="text" id="subject" name="subject" placeholder="Brief subject of your message">
+        </div>
+
+        <div class="form-group">
+          <label for="message">Your Message:</label>
+          <textarea id="message" name="message" rows="7" required placeholder="Type your message here..."></textarea>
+        </div>
+
+        <button type="submit" class="submit-btn animated-btn">Send Message</button>
       </form>
+      <p class="form-note">*(Please note: This form is for general inquiries. Do not submit sensitive personal information or report emergencies via this form.)*</p>
+
+      <h2>---</h2>
+      <h2>5. Social Media Presence</h2>
+      <p>Connect with us on our official social media channels for updates, announcements, and general information:</p>
+      <div class="social-links">
+          <a href="#" target="_blank" aria-label="Home Department on Facebook"><i class="fab fa-facebook-f"></i> Facebook</a>
+          <a href="#" target="_blank" aria-label="Home Department on Twitter"><i class="fab fa-twitter"></i> Twitter</a>
+          <a href="#" target="_blank" aria-label="Home Department on Instagram"><i class="fab fa-instagram"></i> Instagram</a>
+          <a href="#" target="_blank" aria-label="Home Department on LinkedIn"><i class="fab fa-linkedin-in"></i> LinkedIn</a>
+      </div>
+
+      <p class="last-updated">Last Updated: July 24, 2025</p>
     </section>
   </main>
-  <footer><p>&copy; 2025 Home Department</p></footer>
+
+  <footer class="fade-in">
+    <p>&copy; 2025 Home Department. All rights reserved.</p>
+    <p>
+      <a href="privacy.html">Privacy Policy</a> |
+      <a href="terms.html">Terms of Use</a> |
+      <a href="refund.html">Refund Policy</a> |
+      <a href="contact.html">Contact Us</a>
+    </p>
+    <div class="contact-info">
+      <p><i class="fas fa-phone-alt"></i> Helpline: +91-12345-67890</p>
+      <p><i class="fas fa-envelope"></i> Email: info@homedepartment.gov.in</p>
+      <p><i class="fas fa-map-marker-alt"></i> Address: 123, Central Plaza, Delhi - 110001, India</p>
+    </div>
+  </footer>
+
+  <script>
+    // Ensure the page scrolls to the top on load, similar to your main site
+    document.addEventListener('DOMContentLoaded', function() {
+        window.scrollTo(0, 0);
+    });
+  </script>
 </body>
 </html>
