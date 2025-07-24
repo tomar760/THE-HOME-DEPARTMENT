@@ -16,16 +16,17 @@ body {
 header {
     display: flex;
     align-items: center;
-    justify-content: space-between; /* To push nav to the right */
+    justify-content: space-between;
     padding: 20px;
     background-color: #121c2d;
     border-bottom: 2px solid #1f2d3d;
-    flex-wrap: wrap; /* For responsiveness */
+    flex-wrap: wrap; /* Allows items to wrap on smaller screens */
 }
 
 .header-container {
     display: flex;
     align-items: center;
+    margin-right: 20px; /* Space between logo/title and nav */
 }
 
 .logo {
@@ -37,21 +38,30 @@ header {
 header h1 {
     font-size: 2rem;
     color: #4efc84;
+    white-space: nowrap; /* Prevent title from wrapping */
 }
 
 header .tagline {
     font-size: 1rem;
     color: #88b4ff;
+    white-space: nowrap; /* Prevent tagline from wrapping */
+}
+
+nav {
+    flex-grow: 1; /* Allows nav to take up available space */
+    display: flex;
+    justify-content: flex-end; /* Pushes nav links to the right */
 }
 
 nav ul {
     list-style: none;
     display: flex;
-    margin-top: 0; /* Override default margin */
+    margin: 0; /* Remove default margin */
+    padding: 0; /* Remove default padding */
 }
 
 nav ul li {
-    margin-left: 30px;
+    margin-left: 30px; /* Space between links */
 }
 
 nav ul li a {
@@ -59,6 +69,8 @@ nav ul li a {
     text-decoration: none;
     font-weight: 400;
     transition: color 0.3s ease, transform 0.3s ease;
+    padding: 5px 0; /* Add padding for better click area */
+    display: block; /* Make the whole area clickable */
 }
 
 nav ul li a:hover {
@@ -109,15 +121,11 @@ p {
 
 .qr-image {
     width: 180px;
-    /* border: 4px solid #4efc84; Removed border */
+    border: none; /* Removed the border */
     border-radius: 16px;
     padding: 10px;
     background: #1b2b3f;
     box-shadow: 0 0 15px rgba(78, 252, 132, 0.5); /* Added a subtle glow */
-}
-
-.qr-image.no-border {
-    border: none; /* Specific class to ensure no border */
 }
 
 
@@ -541,14 +549,22 @@ footer a:hover {
 @media screen and (max-width: 768px) {
     header {
         flex-direction: column;
+        align-items: center;
         text-align: center;
+    }
+    .header-container {
+        margin-right: 0;
+        margin-bottom: 20px;
+    }
+    nav {
+        justify-content: center; /* Center nav links on small screens */
     }
     nav ul {
         flex-direction: column;
-        margin-top: 20px;
+        align-items: center;
     }
     nav ul li {
-        margin: 10px 0;
+        margin: 10px 0; /* More vertical space */
     }
 
     .features .feature-box,
