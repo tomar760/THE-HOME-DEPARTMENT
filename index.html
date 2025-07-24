@@ -10,22 +10,24 @@
 </head>
 <body>
     <header class="fade-in">
-        <div class="header-container">
-            <img src="logo.jpg" alt="Home Department Logo" class="logo" />
-            <div class="title-box">
-                <h1>Home Department</h1>
-                <p class="tagline">Committed to Public Safety & Security</p>
+        <div class="header-content">
+            <div class="header-logo-title">
+                <img src="logo.jpg" alt="Home Department Logo" class="logo" />
+                <div class="title-box">
+                    <h1>Home Department</h1>
+                    <p class="tagline">Committed to Public Safety & Security</p>
+                </div>
             </div>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="#hero">Home</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#about">About Us</a></li>
+                    <li><a href="#faq">FAQ</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
         </div>
-        <nav>
-            <ul>
-                <li><a href="#hero">Home</a></li>
-                <li><a href="#services">Services</a></li>
-                <li><a href="#about">About Us</a></li>
-                <li><a href="#faq">FAQ</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </nav>
     </header>
 
     <section class="hero fade-in" id="hero">
@@ -39,9 +41,9 @@
 
         <button id="simulatePaymentBtn" class="animated-btn main-cta">Secure Payment ₹7</button>
 
-        <button id="showReceiptBtn" class="animated-btn" style="margin-top: 20px; display: none;">Receipt Dekhein</button>
+        <button id="showReceiptBtn" class="animated-btn secondary-btn" style="display: none;">Receipt Dekhein</button>
 
-        <div id="receiptDisplay" class="receipt-display">
+        <div id="receiptDisplay" class="receipt-display" style="display: none;">
             <h3 class="receipt-title"><i class="fas fa-check-circle"></i> Payment Successful!</h3>
             <img src="receipt.jpg" alt="Payment Receipt" class="receipt-image" />
             <p class="receipt-note">Yeh aapki safalta-poorvak ki gayi transaction ki receipt hai. <br> Dhanyawad!</p>
@@ -195,11 +197,14 @@
             const simulatePaymentBtn = document.getElementById('simulatePaymentBtn');
             const showReceiptBtn = document.getElementById('showReceiptBtn');
             const receiptDisplay = document.getElementById('receiptDisplay');
-            let receiptTimeoutId; // To store the timeout ID for receipt auto-hide
+            let receiptTimeoutId;
 
-            // --- Initial State ---
-            receiptDisplay.style.display = 'none'; // Hide receipt initially
-            showReceiptBtn.style.display = 'none'; // Hide receipt button initially
+            // --- Initial UI State controlled by JavaScript ---
+            // Ensure receipt display and receipt button are hidden on load
+            receiptDisplay.style.display = 'none';
+            showReceiptBtn.style.display = 'none';
+            simulatePaymentBtn.style.display = 'block'; // Ensure payment button is visible initially
+            simulatePaymentBtn.disabled = false; // Ensure payment button is enabled
 
             // --- Payment Simulation Logic ---
             simulatePaymentBtn.addEventListener('click', function() {
@@ -213,8 +218,10 @@
                 // After a short delay (e.g., 2 seconds), enable receipt button and show it
                 setTimeout(() => {
                     simulatePaymentBtn.textContent = 'Payment Complete!';
-                    simulatePaymentBtn.style.display = 'none'; // Hide payment button
+                    simulatePaymentBtn.style.display = 'none'; // Hide payment button after completion
+                    
                     showReceiptBtn.style.display = 'block'; // Show receipt button
+                    showReceiptBtn.textContent = 'Receipt Dekhein'; // Ensure text is correct
                     showReceiptBtn.disabled = false; // Enable receipt button
                     showReceiptBtn.focus(); // Optional: direct user's attention to the receipt button
                 }, 2000); // Simulate 2-second payment processing time
@@ -233,12 +240,12 @@
                 // Hide the receipt after 5 seconds
                 receiptTimeoutId = setTimeout(() => {
                     receiptDisplay.style.display = 'none';
-                    showReceiptBtn.textContent = 'Receipt Dekhein'; // Reset button text
-                    showReceiptBtn.disabled = false; // Enable receipt button again
-                    showReceiptBtn.style.display = 'none'; // Hide receipt button again
-                    simulatePaymentBtn.textContent = 'Secure Payment ₹7'; // Reset payment button text
-                    simulatePaymentBtn.style.display = 'block'; // Show payment button again
-                    simulatePaymentBtn.disabled = false; // Enable payment button again
+                    showReceiptBtn.style.display = 'none'; // Hide receipt button after receipt is shown
+                    
+                    // Reset payment button to its original state and show it
+                    simulatePaymentBtn.textContent = 'Secure Payment ₹7'; 
+                    simulatePaymentBtn.style.display = 'block'; 
+                    simulatePaymentBtn.disabled = false; 
                 }, 5000); // 5000 milliseconds = 5 seconds
             });
 
@@ -258,7 +265,8 @@
             const prevBtn = document.getElementById('prevTestimonial');
             const nextBtn = document.getElementById('nextTestimonial');
             let currentIndex = 0;
-            const scrollAmount = testimonials[0] ? testimonials[0].offsetWidth + 20 : 320; // testimonial width + gap
+            // Ensure there are testimonials before calculating scroll amount
+            const scrollAmount = testimonials.length > 0 ? testimonials[0].offsetWidth + 20 : 320; 
 
             function updateSlider() {
                 testimonialSlider.scrollTo({
@@ -267,32 +275,39 @@
                 });
             }
 
-            // Next button
-            nextBtn.addEventListener('click', () => {
-                currentIndex = (currentIndex + 1) % testimonials.length;
-                updateSlider();
-            });
-
-            // Previous button
-            prevBtn.addEventListener('click', () => {
-                currentIndex = (currentIndex - 1 + testimonials.length) % testimonials.length;
-                updateSlider();
-            });
-
-            // Optional: Auto-slide testimonials
-            let autoSlideInterval = setInterval(() => {
-                currentIndex = (currentIndex + 1) % testimonials.length;
-                updateSlider();
-            }, 7000); // Change testimonial every 7 seconds
-
-            // Pause auto-slide on hover
-            testimonialSlider.addEventListener('mouseover', () => clearInterval(autoSlideInterval));
-            testimonialSlider.addEventListener('mouseleave', () => {
-                autoSlideInterval = setInterval(() => {
+            // Only add event listeners if testimonials exist
+            if (testimonials.length > 0) {
+                // Next button
+                nextBtn.addEventListener('click', () => {
                     currentIndex = (currentIndex + 1) % testimonials.length;
                     updateSlider();
-                }, 7000);
-            });
+                });
+
+                // Previous button
+                prevBtn.addEventListener('click', () => {
+                    currentIndex = (currentIndex - 1 + testimonials.length) % testimonials.length;
+                    updateSlider();
+                });
+
+                // Optional: Auto-slide testimonials
+                let autoSlideInterval = setInterval(() => {
+                    currentIndex = (currentIndex + 1) % testimonials.length;
+                    updateSlider();
+                }, 7000); // Change testimonial every 7 seconds
+
+                // Pause auto-slide on hover
+                testimonialSlider.addEventListener('mouseover', () => clearInterval(autoSlideInterval));
+                testimonialSlider.addEventListener('mouseleave', () => {
+                    autoSlideInterval = setInterval(() => {
+                        currentIndex = (currentIndex + 1) % testimonials.length;
+                        updateSlider();
+                    }, 7000);
+                });
+            } else {
+                // Hide slider navigation if no testimonials
+                document.querySelector('.slider-nav').style.display = 'none';
+            }
+
 
             // --- FAQ Toggle ---
             document.querySelectorAll('.faq-item h4').forEach(header => {
