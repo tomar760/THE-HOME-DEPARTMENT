@@ -1074,3 +1074,413 @@ header h1 {
         margin-bottom: 5px;
     }
 }
+
+/* --- Common Styles for Policy/Information Pages (Terms, Refund, Contact) --- */
+
+/* Ensures header H1 is larger on these pages, overriding main site H1 which might be smaller due to logo/tagline space */
+header h1 {
+    font-size: 2.5rem; /* Large and prominent title */
+}
+header .tagline {
+    font-size: 1.1rem; /* Slightly larger tagline for these pages */
+    margin-top: 5px;
+}
+
+/* Main content section styling for these pages (similar to privacy-section) */
+.policy-section {
+    background-color: #1a2333; /* Darker background for the main content area */
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5); /* Stronger shadow */
+    margin-top: 30px; /* Space from header */
+    margin-bottom: 30px; /* Space before footer */
+    border: 1px solid #2d3f56; /* Subtle border */
+    text-align: left; /* Ensure text alignment is left for readability */
+}
+
+/* Introduction paragraph styling */
+.policy-section .intro-paragraph {
+    font-size: 1.15rem;
+    font-weight: 400;
+    color: #e0e0e0;
+    margin-bottom: 30px;
+    border-bottom: 1px dashed #2d3f56; /* Dashed line separator */
+    padding-bottom: 20px;
+}
+.policy-section .intro-paragraph a {
+    color: #88b4ff; /* Link color within intro paragraph */
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s ease;
+}
+.policy-section .intro-paragraph a:hover {
+    color: #4efc84;
+    text-decoration: underline;
+}
+
+/* Headings for policy sections */
+.policy-section h1,
+.policy-section h2,
+.policy-section h3 {
+    color: #4efc84; /* Green accent color for main headings */
+    margin-top: 35px; /* More space above headings */
+    margin-bottom: 15px;
+    text-align: left; /* Ensure headings align left */
+    font-weight: 600; /* Bolder headings */
+}
+
+.policy-section h2 {
+    font-size: 1.8rem;
+    border-bottom: 2px solid #2d3f56; /* Underline for main sections */
+    padding-bottom: 10px;
+    margin-top: 50px; /* More space for major sections */
+}
+
+.policy-section h3 {
+    font-size: 1.4rem;
+    color: #88b4ff; /* Blue accent for sub-headings */
+}
+
+/* Paragraphs within policy sections */
+.policy-section p {
+    color: #d3d3d3; /* Lighter text color for body paragraphs */
+    line-height: 1.8; /* Increased line height for readability */
+    margin-bottom: 20px;
+    text-align: left; /* Ensure paragraphs align left */
+}
+
+/* List items within policy sections */
+.policy-section ul,
+.policy-section ol {
+    list-style: disc; /* Default to disc for ul */
+    list-style-position: inside; /* Bullets inside content flow */
+    margin-bottom: 20px;
+    padding-left: 20px; /* Indent list items */
+}
+.policy-section ol {
+    list-style: decimal; /* Use numbers for ordered lists */
+}
+
+.policy-section ul li,
+.policy-section ol li {
+    color: #c0c0c0; /* Slightly different color for list items */
+    margin-bottom: 10px;
+    line-height: 1.6;
+}
+.policy-section ol li strong {
+    color: #88b4ff; /* Highlight strong text in ordered lists */
+}
+
+
+/* Special note styling (like in Privacy Policy) */
+.policy-section .note {
+    font-style: italic;
+    color: #a0a0a0;
+    margin-top: 25px;
+    padding: 15px;
+    border-left: 5px solid #88b4ff; /* Accent border for notes */
+    background-color: #121c2d;
+    border-radius: 8px;
+}
+
+/* Common contact detail styling */
+.policy-section .contact-detail {
+    display: flex;
+    align-items: center;
+    color: #e0e0e0;
+    margin-bottom: 10px;
+    text-align: left; /* Ensure contact details align left */
+    font-weight: 500;
+}
+.policy-section .contact-detail a {
+    color: #e0e0e0; /* Default link color for email */
+    text-decoration: none;
+}
+.policy-section .contact-detail a:hover {
+    color: #4efc84; /* Hover color for email link */
+    text-decoration: underline;
+}
+
+.policy-section .contact-detail .fas,
+.policy-section .contact-detail .fab { /* For social media icons */
+    margin-right: 10px;
+    color: #4efc84; /* Icon color */
+    font-size: 1.2em;
+    flex-shrink: 0;
+}
+
+.policy-section .contact-sub-detail {
+    font-size: 0.9em;
+    color: #a0a0a0;
+    margin-left: 30px; /* Indent sub-details */
+    margin-top: -8px; /* Pull it closer to the main detail */
+    margin-bottom: 15px;
+}
+
+/* Last updated date styling */
+.policy-section .last-updated {
+    font-size: 0.9em;
+    color: #888;
+    margin-top: 30px;
+    text-align: center;
+}
+
+/* --- Specific Styles for Contact Us Page --- */
+.contact-info-block {
+    background-color: #121c2d;
+    padding: 20px;
+    border-radius: 10px;
+    margin-top: 20px;
+    margin-bottom: 30px;
+    border: 1px solid #2d3f56;
+}
+
+.contact-info-block.emergency {
+    border-left: 5px solid #ff4e4e; /* Red accent for emergency */
+    background-color: #1a0f0f; /* Slightly darker/reddish background */
+}
+
+.contact-info-block.address {
+    border-left: 5px solid #4efc84; /* Green accent for address */
+}
+
+.contact-address-line {
+    text-align: left;
+    margin-left: 30px; /* Align with icon indentation */
+    margin-bottom: 5px;
+    color: #d3d3d3;
+}
+
+/* Contact Form Styles */
+.contact-form {
+    max-width: 600px;
+    margin: 30px auto;
+    background-color: #121c2d;
+    padding: 30px;
+    border-radius: 12px;
+    border: 1px solid #2d3f56;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+.contact-form .form-group {
+    margin-bottom: 20px;
+}
+
+.contact-form label {
+    display: block;
+    margin-bottom: 8px;
+    color: #88b4ff; /* Label color */
+    font-weight: 500;
+    font-size: 1.1rem;
+}
+
+.contact-form input[type="text"],
+.contact-form input[type="email"],
+.contact-form textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #2d3f56;
+    border-radius: 8px;
+    background-color: #0a0f1a; /* Darker input background */
+    color: #e0e0e0; /* Input text color */
+    font-size: 1rem;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.contact-form input[type="text"]:focus,
+.contact-form input[type="email"]:focus,
+.contact-form textarea:focus {
+    border-color: #4efc84; /* Green border on focus */
+    box-shadow: 0 0 8px rgba(78, 252, 132, 0.4);
+    outline: none; /* Remove default outline */
+}
+
+.contact-form textarea {
+    resize: vertical; /* Allow vertical resizing only */
+    min-height: 100px;
+}
+
+.contact-form .submit-btn {
+    display: block;
+    width: auto;
+    margin: 25px auto 0;
+    padding: 12px 30px;
+    background-color: #4efc84;
+    color: #000;
+    border: none;
+    border-radius: 30px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.contact-form .submit-btn:hover {
+    background-color: #66ffa1;
+    transform: scale(1.05);
+    box-shadow: 0 5px 15px rgba(78, 252, 132, 0.4);
+}
+
+.contact-form .form-note {
+    font-size: 0.85em;
+    color: #a0a0a0;
+    margin-top: 15px;
+    text-align: center;
+    font-style: italic;
+}
+
+/* Social Media Links */
+.social-links {
+    text-align: center;
+    margin-top: 30px;
+    margin-bottom: 20px;
+}
+
+.social-links a {
+    display: inline-flex;
+    align-items: center;
+    background-color: #121c2d;
+    color: #d3d3d3;
+    text-decoration: none;
+    padding: 10px 15px;
+    margin: 0 8px;
+    border-radius: 25px;
+    border: 1px solid #2d3f56;
+    transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+    font-size: 1.1rem;
+}
+
+.social-links a:hover {
+    background-color: #2d3f56;
+    color: #4efc84;
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.social-links a .fab {
+    margin-right: 8px;
+    font-size: 1.3em;
+    color: #88b4ff; /* Icon color */
+}
+
+.social-links a:hover .fab {
+    color: #4efc84; /* Icon color on hover */
+}
+
+
+/* --- Responsive Adjustments for all these pages --- */
+@media screen and (max-width: 767px) {
+    header h1 {
+        font-size: 1.8rem;
+    }
+    header .tagline {
+        font-size: 0.9rem;
+    }
+
+    .policy-section {
+        padding: 25px 15px;
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+    .policy-section .intro-paragraph {
+        font-size: 1.05rem;
+        margin-bottom: 20px;
+    }
+    .policy-section h2 {
+        font-size: 1.5rem;
+        margin-top: 35px;
+    }
+    .policy-section h3 {
+        font-size: 1.2rem;
+    }
+    .policy-section p,
+    .policy-section ul li,
+    .policy-section ol li {
+        font-size: 0.9rem;
+        line-height: 1.7;
+    }
+    .policy-section ul,
+    .policy-section ol {
+        padding-left: 15px;
+    }
+    .policy-section .contact-detail,
+    .policy-section .contact-sub-detail {
+        font-size: 0.9rem;
+        flex-direction: column; /* Stack for contact details on small screens */
+        align-items: flex-start;
+        margin-left: 0;
+    }
+    .policy-section .contact-detail .fas,
+    .policy-section .contact-detail .fab {
+        margin-right: 0;
+        margin-bottom: 5px; /* Space between icon and text */
+        font-size: 1em;
+    }
+    .policy-section .contact-sub-detail {
+        margin-left: 0;
+        text-align: left;
+    }
+    .contact-info-block {
+        padding: 15px;
+    }
+    .contact-address-line {
+        margin-left: 0; /* No indent on small screens */
+    }
+
+    /* Contact form adjustments */
+    .contact-form {
+        padding: 20px;
+        margin: 20px auto;
+    }
+    .contact-form label {
+        font-size: 1rem;
+    }
+    .contact-form input[type="text"],
+    .contact-form input[type="email"],
+    .contact-form textarea {
+        padding: 10px;
+        font-size: 0.9rem;
+    }
+    .contact-form .submit-btn {
+        padding: 10px 20px;
+        font-size: 1rem;
+    }
+    .contact-form .form-note {
+        font-size: 0.8em;
+    }
+
+    /* Social links adjustments */
+    .social-links {
+        flex-wrap: wrap; /* Allow wrapping of social links */
+        justify-content: center;
+    }
+    .social-links a {
+        padding: 8px 12px;
+        font-size: 0.9rem;
+        margin: 5px; /* Adjust margin for wrapped items */
+    }
+    .social-links a .fab {
+        font-size: 1.1em;
+    }
+}
+
+/* Medium Screens / Tablets (min-width: 768px and max-width: 1024px) */
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+    .policy-section {
+        padding: 35px 30px;
+    }
+    .policy-section h2 {
+        font-size: 1.9rem;
+    }
+    .policy-section h3 {
+        font-size: 1.5rem;
+    }
+    .policy-section p,
+    .policy-section ul li,
+    .policy-section ol li {
+        font-size: 1rem;
+    }
+    .contact-form {
+        padding: 25px;
+    }
+}
