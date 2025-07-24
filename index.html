@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Home Department – Official Portal</title>
     <link rel="stylesheet" href="style.css" />
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600&display=swap" rel="stylesheet">
@@ -18,19 +18,19 @@
                     <p class="tagline">Committed to Public Safety & Security</p>
                 </div>
             </div>
-            <nav class="main-nav">
-                <ul>
-                    <li><a href="#hero">Home</a></li>
-                    <li><a href="#services">Services</a></li>
-                    <li><a href="#about">About Us</a></li>
-                    <li><a href="#faq">FAQ</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                </ul>
-            </nav>
         </div>
     </header>
 
     <section class="hero fade-in" id="hero">
+        <nav class="hero-nav">
+            <ul>
+                <li><a href="#hero" class="hero-nav-link" data-text="Home">Home</a></li>
+                <li><a href="#services" class="hero-nav-link" data-text="Services">Services</a></li>
+                <li><a href="#about" class="hero-nav-link" data-text="About Us">About Us</a></li>
+                <li><a href="#faq" class="hero-nav-link" data-text="FAQ">FAQ</a></li>
+                <li><a href="#contact" class="hero-nav-link" data-text="Contact">Contact</a></li>
+            </ul>
+        </nav>
         <h2>Welcome to the Official Portal</h2>
         <p>Your trusted source for internal security, emergency services, and public welfare initiatives.</p>
 
@@ -47,6 +47,40 @@
             <h3 class="receipt-title"><i class="fas fa-check-circle"></i> Payment Successful!</h3>
             <img src="receipt.jpg" alt="Payment Receipt" class="receipt-image" />
             <p class="receipt-note">Yeh aapki safalta-poorvak ki gayi transaction ki receipt hai. <br> Dhanyawad!</p>
+        </div>
+    </section>
+
+    <section class="testimonials fade-in">
+        <h2>What Citizens Say</h2>
+        <div class="testimonial-slider">
+            <div class="testimonial">
+                <p>"Excellent service and prompt response. Feeling much safer now."</p>
+                <h4>– Priya Sharma, Mumbai</h4>
+            </div>
+            <div class="testimonial">
+                <p>"The online FIR filing process was so easy and efficient. Thank you!"</p>
+                <h4>– Vivek Gupta, Bangalore</h4>
+            </div>
+            <div class="testimonial">
+                <p>"Their cyber awareness programs are very informative and helpful."</p>
+                <h4>– Aisha Khan, Hyderabad</h4>
+            </div>
+            <div class="testimonial">
+                <p>"Quick help during a local emergency. The team was very supportive."</p>
+                <h4>– John D'Souza, Kolkata</h4>
+            </div>
+            <div class="testimonial">
+                <p>"I appreciate the transparency and updates on government safety initiatives."</p>
+                <h4>– Lakshmi Patel, Chennai</h4>
+            </div>
+            <div class="testimonial">
+                <p>"The helpline was very responsive and guided me appropriately."</p>
+                <h4>– Harpreet Singh, Chandigarh</h4>
+            </div>
+        </div>
+        <div class="slider-nav">
+            <button id="prevTestimonial" class="nav-btn"><i class="fas fa-chevron-left"></i></button>
+            <button id="nextTestimonial" class="nav-btn"><i class="fas fa-chevron-right"></i></button>
         </div>
     </section>
 
@@ -79,28 +113,6 @@
             <li><i class="fas fa-hands-helping service-icon"></i> Citizen Safety Awareness Programs</li>
             <li><i class="fas fa-hospital-alt service-icon"></i> Disaster Emergency Response Planning</li>
         </ul>
-    </section>
-
-    <section class="testimonials fade-in">
-        <h2>What Citizens Say</h2>
-        <div class="testimonial-slider">
-            <div class="testimonial">
-                <p>"Very fast response during emergency situations. Grateful for the team!"</p>
-                <h4>– Ramesh Verma, Delhi</h4>
-            </div>
-            <div class="testimonial">
-                <p>"Their cybercrime support helped me recover my lost data quickly."</p>
-                <h4>– Sneha Jha, Patna</h4>
-            </div>
-            <div class="testimonial">
-                <p>"Quick and polite support during a flood evacuation drive. Impressed!"</p>
-                <h4>– Abdul Khan, Surat</h4>
-            </div>
-        </div>
-        <div class="slider-nav">
-            <button id="prevTestimonial" class="nav-btn"><i class="fas fa-chevron-left"></i></button>
-            <button id="nextTestimonial" class="nav-btn"><i class="fas fa-chevron-right"></i></button>
-        </div>
     </section>
 
     <section class="events fade-in">
@@ -194,63 +206,54 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
+            // Ye code page load hote hi window ko bilkul top par scroll karega
+            window.scrollTo(0, 0);
+
             const simulatePaymentBtn = document.getElementById('simulatePaymentBtn');
             const showReceiptBtn = document.getElementById('showReceiptBtn');
             const receiptDisplay = document.getElementById('receiptDisplay');
             let receiptTimeoutId;
 
             // --- Initial UI State controlled by JavaScript ---
-            // Ensure receipt display and receipt button are hidden on load
             receiptDisplay.style.display = 'none';
             showReceiptBtn.style.display = 'none';
-            simulatePaymentBtn.style.display = 'block'; // Ensure payment button is visible initially
-            simulatePaymentBtn.disabled = false; // Ensure payment button is enabled
+            simulatePaymentBtn.style.display = 'block';
+            simulatePaymentBtn.disabled = false;
 
             // --- Payment Simulation Logic ---
             simulatePaymentBtn.addEventListener('click', function() {
-                // Clear any existing receipt timeout if button is clicked quickly again
                 clearTimeout(receiptTimeoutId);
-
-                // Simulate payment success
                 simulatePaymentBtn.textContent = 'Processing Payment...';
-                simulatePaymentBtn.disabled = true; // Disable payment button temporarily
+                simulatePaymentBtn.disabled = true;
 
-                // After a short delay (e.g., 2 seconds), enable receipt button and show it
                 setTimeout(() => {
                     simulatePaymentBtn.textContent = 'Payment Complete!';
-                    simulatePaymentBtn.style.display = 'none'; // Hide payment button after completion
-                    
-                    showReceiptBtn.style.display = 'block'; // Show receipt button
-                    showReceiptBtn.textContent = 'Receipt Dekhein'; // Ensure text is correct
-                    showReceiptBtn.disabled = false; // Enable receipt button
-                    showReceiptBtn.focus(); // Optional: direct user's attention to the receipt button
-                }, 2000); // Simulate 2-second payment processing time
+                    simulatePaymentBtn.style.display = 'none';
+                    showReceiptBtn.style.display = 'block';
+                    showReceiptBtn.textContent = 'Receipt Dekhein';
+                    showReceiptBtn.disabled = false;
+                    showReceiptBtn.focus();
+                }, 2000);
             });
 
             // --- Receipt Display Logic ---
             showReceiptBtn.addEventListener('click', function() {
-                // Clear any existing timeout to prevent conflicts if clicked multiple times quickly
                 clearTimeout(receiptTimeoutId);
-
-                // Show the receipt
                 receiptDisplay.style.display = 'block';
                 showReceiptBtn.textContent = 'Receipt Dikha Raha Hai...';
-                showReceiptBtn.disabled = true; // Disable receipt button during display
+                showReceiptBtn.disabled = true;
 
-                // Hide the receipt after 10 seconds
                 receiptTimeoutId = setTimeout(() => {
                     receiptDisplay.style.display = 'none';
-                    showReceiptBtn.style.display = 'none'; // Hide receipt button after receipt is shown
-                    
-                    // Reset payment button to its original state and show it
-                    simulatePaymentBtn.textContent = 'Secure Payment'; 
-                    simulatePaymentBtn.style.display = 'block'; 
-                    simulatePaymentBtn.disabled = false; 
-                }, 5000); // 5000 milliseconds = 5 seconds
+                    showReceiptBtn.style.display = 'none';
+                    simulatePaymentBtn.textContent = 'Secure Payment';
+                    simulatePaymentBtn.style.display = 'block';
+                    simulatePaymentBtn.disabled = false;
+                }, 5000);
             });
 
             // --- Smooth Scrolling for Navigation ---
-            document.querySelectorAll('nav ul li a').forEach(anchor => {
+            document.querySelectorAll('.hero-nav ul li a').forEach(anchor => {
                 anchor.addEventListener('click', function(e) {
                     e.preventDefault();
                     document.querySelector(this.getAttribute('href')).scrollIntoView({
@@ -265,55 +268,57 @@
             const prevBtn = document.getElementById('prevTestimonial');
             const nextBtn = document.getElementById('nextTestimonial');
             let currentIndex = 0;
-            // Ensure there are testimonials before calculating scroll amount
-            // Changed this to use scrollWidth for more accurate sliding on smaller screens
-            let scrollAmount = testimonials.length > 0 ? testimonials[0].offsetWidth + 20 : 320; 
 
             function updateSlider() {
-                // Dynamically calculate scroll amount to adapt to screen size changes
-                scrollAmount = testimonials.length > 0 ? testimonials[0].offsetWidth + 20 : 320; 
+                if (testimonials.length === 0) return; // Handle case where no testimonials exist
+                // Dynamically calculate scroll amount based on current testimonial width + gap
+                const firstTestimonial = testimonials[0];
+                const computedStyle = getComputedStyle(firstTestimonial);
+                const gap = parseFloat(computedStyle.marginRight) || 0; // Check for margin-right or gap
+                const scrollAmount = firstTestimonial.offsetWidth + gap;
+
                 testimonialSlider.scrollTo({
                     left: currentIndex * scrollAmount,
                     behavior: 'smooth'
                 });
             }
 
-            // Only add event listeners if testimonials exist
             if (testimonials.length > 0) {
-                // Next button
+                // Initialize scroll amount on load for the first time
+                // This recalculation is better within updateSlider and on resize
+                updateSlider();
+
                 nextBtn.addEventListener('click', () => {
                     currentIndex = (currentIndex + 1) % testimonials.length;
                     updateSlider();
                 });
 
-                // Previous button
                 prevBtn.addEventListener('click', () => {
                     currentIndex = (currentIndex - 1 + testimonials.length) % testimonials.length;
                     updateSlider();
                 });
 
-                // Optional: Auto-slide testimonials
+                // Auto slide functionality
                 let autoSlideInterval = setInterval(() => {
                     currentIndex = (currentIndex + 1) % testimonials.length;
                     updateSlider();
-                }, 7000); // Change testimonial every 7 seconds
+                }, 5000); // Change every 5 seconds
 
-                // Pause auto-slide on hover
+                // Pause auto-slide on hover for the slider area
                 testimonialSlider.addEventListener('mouseover', () => clearInterval(autoSlideInterval));
                 testimonialSlider.addEventListener('mouseleave', () => {
                     autoSlideInterval = setInterval(() => {
                         currentIndex = (currentIndex + 1) % testimonials.length;
                         updateSlider();
-                    }, 7000);
+                    }, 5000);
                 });
 
-                // Add resize listener to update scrollAmount
+                // Recalculate scroll amount on window resize
                 window.addEventListener('resize', updateSlider);
+
             } else {
-                // Hide slider navigation if no testimonials
                 document.querySelector('.slider-nav').style.display = 'none';
             }
-
 
             // --- FAQ Toggle ---
             document.querySelectorAll('.faq-item h4').forEach(header => {
@@ -326,9 +331,8 @@
                         answer.style.display = 'none';
                         icon.classList.remove('fa-minus');
                         icon.classList.add('fa-plus');
-                        faqItem.classList.remove('active'); // Remove active class
+                        faqItem.classList.remove('active');
                     } else {
-                        // Close all other open FAQs
                         document.querySelectorAll('.faq-answer').forEach(ans => {
                             if (ans !== answer) {
                                 ans.style.display = 'none';
@@ -340,7 +344,7 @@
                         answer.style.display = 'block';
                         icon.classList.remove('fa-plus');
                         icon.classList.add('fa-minus');
-                        faqItem.classList.add('active'); // Add active class
+                        faqItem.classList.add('active');
                     }
                 });
             });
