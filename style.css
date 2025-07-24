@@ -10,94 +10,146 @@ body {
     background-color: #0a0f1a;
     color: #ffffff;
     line-height: 1.6;
-    /* Prevent user scaling/zooming on mobile devices */
     -webkit-text-size-adjust: 100%; /* Safari */
     text-size-adjust: 100%; /* Other browsers */
-    /* overflow-x: hidden; *//* Prevent horizontal scroll if not needed */
+    /* overflow-x: hidden; */ /* Re-enable if horizontal scrollbar appears unexpectedly */
 }
 
 /* Header & Navigation */
 header {
     display: flex;
     align-items: center;
-    justify-content: center; /* Center content horizontally */
+    justify-content: center;
     padding: 20px;
     background-color: #121c2d;
     border-bottom: 2px solid #1f2d3d;
-    flex-wrap: wrap; /* Allow items to wrap on smaller screens */
+    flex-wrap: wrap;
 }
 
 .header-content {
     display: flex;
     align-items: center;
-    justify-content: space-between; /* Space out logo/title and nav */
-    max-width: 1100px; /* Match section max-width */
-    width: 100%; /* Take full width */
-    flex-wrap: wrap; /* Allow wrapping */
+    justify-content: space-between;
+    max-width: 1100px;
+    width: 100%;
+    flex-wrap: wrap;
 }
 
 .header-logo-title {
     display: flex;
     align-items: center;
-    /* On smaller screens, this part might wrap or stack */
-    margin-bottom: 0; /* Default */
-    flex-shrink: 0; /* Prevent it from shrinking too much */
+    margin-bottom: 0;
+    flex-shrink: 0;
 }
 
 .logo {
     width: 70px;
     height: auto;
     margin-right: 15px;
-    flex-shrink: 0; /* Prevent logo from shrinking */
+    flex-shrink: 0;
 }
 
 header h1 {
     font-size: 2rem;
     color: #4efc84;
-    white-space: nowrap; /* Prevent title from wrapping */
-    min-width: 0; /* Allow text to shrink if absolutely necessary, but with nowrap, it won't break lines */
+    white-space: nowrap;
+    min-width: 0;
 }
 
 header .tagline {
     font-size: 1rem;
     color: #88b4ff;
-    white-space: nowrap; /* Prevent tagline from wrapping */
+    white-space: nowrap;
     min-width: 0;
 }
 
-.main-nav {
-    flex-grow: 1; /* Allows nav to take up available space */
-    display: flex;
-    justify-content: flex-end; /* Pushes nav links to the right */
-    /* On smaller screens, this might also need adjustment */
+/* Hero Navigation - New Styles */
+.hero-nav {
+    text-align: center;
+    margin-bottom: 40px; /* Space below navigation */
+    background-color: #121c2d; /* Background for the nav bar */
+    padding: 15px 0; /* Padding around links */
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    max-width: 900px; /* Limit nav width */
+    margin-left: auto;
+    margin-right: auto;
+    animation: slideInFromTop 0.8s ease-out forwards; /* Animation for nav bar */
+    opacity: 0; /* Start hidden for animation */
+    transform: translateY(-20px); /* Start slightly above for animation */
 }
 
-.main-nav ul {
+@keyframes slideInFromTop {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.hero-nav ul {
     list-style: none;
-    display: flex;
-    margin: 0; /* Remove default margin */
-    padding: 0; /* Remove default padding */
-    flex-wrap: wrap; /* Allow navigation items to wrap if needed */
-    justify-content: flex-end; /* Keep items to the right when wrapped */
+    padding: 0;
+    display: flex; /* Use flexbox for horizontal alignment */
+    justify-content: center; /* Center the links */
+    flex-wrap: wrap; /* Allow links to wrap on smaller screens */
+    margin: 0;
 }
 
-.main-nav ul li {
-    margin-left: 30px; /* Space between links */
+.hero-nav ul li {
+    margin: 0 25px; /* Space between links */
+    position: relative;
 }
 
-.main-nav ul li a {
+.hero-nav-link {
     color: #d3d3d3;
     text-decoration: none;
-    font-weight: 400;
-    transition: color 0.3s ease, transform 0.3s ease;
-    padding: 5px 0; /* Add padding for better click area */
-    display: block; /* Make the whole area clickable */
+    font-family: 'Outfit', sans-serif; /* Keep same font, but add more weight/size */
+    font-size: 1.25rem; /* Larger font size */
+    font-weight: 600; /* Bolder font */
+    text-transform: uppercase;
+    letter-spacing: 1.2px; /* Slightly more letter spacing */
+    padding: 10px 0;
+    display: inline-block;
+    position: relative;
+    overflow: hidden;
+    transition: color 0.3s ease; /* Smooth color transition */
 }
 
-.main-nav ul li a:hover {
-    color: #4efc84;
-    transform: translateY(-2px);
+/* Underline animation */
+.hero-nav-link:before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 3px; /* Thicker underline */
+    background: linear-gradient(to right, #4efc84, #88b4ff); /* Green-blue gradient */
+    transform: scaleX(0);
+    transform-origin: left; /* Animation starts from left */
+    transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94); /* Custom ease-out curve */
 }
+
+.hero-nav-link:hover:before {
+    transform: scaleX(1);
+}
+
+/* "Reveal" text effect on hover */
+.hero-nav-link::after {
+    content: attr(data-text); /* Get text from data-text attribute */
+    position: absolute;
+    top: 0;
+    left: 0;
+    color: #4efc84; /* Highlight color */
+    overflow: hidden;
+    white-space: nowrap;
+    max-width: 0; /* Start hidden */
+    transition: max-width 0.6s cubic-bezier(0, 0.5, 0.8, 1); /* Custom animation curve */
+}
+
+.hero-nav-link:hover::after {
+    max-width: 100%; /* Reveal text on hover */
+}
+
 
 section {
     padding: 60px 20px;
@@ -119,6 +171,11 @@ p {
 }
 
 /* Hero Section */
+.hero {
+    text-align: center;
+    padding-top: 40px; /* Adjust padding due to new nav placement */
+}
+
 .hero p {
     max-width: 800px;
     margin-left: auto;
@@ -142,15 +199,14 @@ p {
 
 .qr-image {
     width: 180px;
-    max-width: 90%; /* Make QR image responsive */
+    max-width: 90%;
     height: auto;
-    border: none !important; /* !important to override any other border property */
+    border: none !important;
     border-radius: 16px;
     padding: 10px;
     background: #1b2b3f;
-    box-shadow: 0 0 15px rgba(78, 252, 132, 0.5); /* Added a subtle glow */
+    box-shadow: 0 0 15px rgba(78, 252, 132, 0.5);
 }
-
 
 /* Animated Button */
 .animated-btn {
@@ -164,8 +220,8 @@ p {
     transition: all 0.3s ease;
     display: block;
     margin: 30px auto 0;
-    width: fit-content; /* Make button width fit content */
-    max-width: 90%; /* Prevent button from overflowing on small screens */
+    width: fit-content;
+    max-width: 90%;
 }
 
 .animated-btn:hover {
@@ -181,43 +237,42 @@ p {
 }
 
 .animated-btn.main-cta {
-    margin-top: 20px; /* Adjust spacing for main payment button */
+    margin-top: 20px;
 }
 
 .animated-btn.secondary-btn {
-    margin-top: 20px; /* Keep consistent margin from above */
-    margin-bottom: 0; /* No need for margin below if it's the last element */
+    margin-top: 20px;
+    margin-bottom: 0;
 }
-
 
 /* Receipt Display Styles */
 .receipt-display {
-    background: linear-gradient(145deg, #1a2333, #0a0f1a); /* Gradient background */
+    background: linear-gradient(145deg, #1a2333, #0a0f1a);
     padding: 25px;
-    margin-top: 30px; /* Space above receipt */
+    margin-top: 30px;
     border-radius: 12px;
-    border: 1px solid #2d3f56; /* Subtle border */
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4); /* Stronger shadow */
-    text-align: center; /* Content center alignment */
-    max-width: 500px; /* Max width for receipt box */
+    border: 1px solid #2d3f56;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+    text-align: center;
+    max-width: 500px;
     margin-left: auto;
     margin-right: auto;
-    animation: fadeInScale 0.8s ease-out forwards; /* Fade-in and scale animation */
-    overflow: hidden; /* Ensure nothing spills out */
+    animation: fadeInScale 0.8s ease-out forwards;
+    overflow: hidden;
     position: relative;
 }
 
 /* Payment Successful Title */
 .receipt-title {
-    color: #4efc84; /* Green accent color */
+    color: #4efc84;
     margin-bottom: 15px;
-    font-size: 1.8rem; /* Larger font size */
+    font-size: 1.8rem;
     font-weight: 600;
-    text-shadow: 0 0 10px rgba(78, 252, 132, 0.5); /* Subtle glow */
+    text-shadow: 0 0 10px rgba(78, 252, 132, 0.5);
     display: flex;
     align-items: center;
     justify-content: center;
-    flex-wrap: wrap; /* Allow title and icon to wrap if needed */
+    flex-wrap: wrap;
 }
 
 .receipt-title .fas {
@@ -227,24 +282,24 @@ p {
 }
 
 .receipt-image {
-    max-width: 90%; /* Responsive image */
+    max-width: 90%;
     height: auto;
-    border: 3px solid #88b4ff; /* Blue border around image */
+    border: 3px solid #88b4ff;
     border-radius: 8px;
-    display: block; /* To allow margin auto */
-    margin: 15px auto 20px auto; /* Center image and add space below */
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3); /* Stronger shadow for image */
+    display: block;
+    margin: 15px auto 20px auto;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
     transition: transform 0.3s ease-out;
 }
 
 .receipt-image:hover {
-    transform: scale(1.02); /* Slight scale on hover */
+    transform: scale(1.02);
 }
 
 .receipt-note {
     font-style: italic;
     color: #a0a0a0;
-    font-size: 1em; /* Slightly larger font */
+    font-size: 1em;
     line-height: 1.5;
     margin-top: 10px;
 }
@@ -261,23 +316,131 @@ p {
     }
 }
 
+/* Testimonials - Updated Styles */
+.testimonials {
+    background-color: #1a2333;
+    padding: 50px 20px;
+}
+
+.testimonial-slider {
+    display: flex;
+    overflow-x: auto; /* Changed to 'auto' to allow manual scrolling if needed */
+    -webkit-overflow-scrolling: touch; /* Enable smooth scrolling on iOS */
+    gap: 20px; /* Gap between testimonials */
+    scroll-snap-type: x mandatory;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+    scrollbar-width: thin; /* Firefox */
+    scrollbar-color: #4efc84 #1a2333; /* Firefox */
+}
+
+/* Custom Scrollbar for WebKit browsers */
+.testimonial-slider::-webkit-scrollbar {
+    height: 8px; /* Height of horizontal scrollbar */
+}
+
+.testimonial-slider::-webkit-scrollbar-track {
+    background: #1a2333; /* Color of the track */
+    border-radius: 10px;
+}
+
+.testimonial-slider::-webkit-scrollbar-thumb {
+    background-color: #4efc84; /* Color of the scroll thumb */
+    border-radius: 10px;
+    border: 2px solid #1a2333; /* Padding around thumb */
+}
+
+.testimonial {
+    min-width: 300px; /* Keep minimum width consistent */
+    width: 90%; /* Responsive width for smaller screens */
+    max-width: 400px; /* Max width to prevent it from getting too wide on larger screens */
+    background: #121c2d; /* Darker background for testimonials */
+    padding: 25px; /* Increased padding */
+    border-radius: 15px; /* More rounded corners */
+    scroll-snap-align: center;
+    flex-shrink: 0;
+    border: 1px solid #2d3f56;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4); /* Stronger shadow */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    text-align: center;
+    margin: 0 auto; /* Center individual testimonials within the overflow container */
+    animation: fadeInSlideUp 0.6s ease-out forwards; /* Add a subtle entrance animation */
+    opacity: 0; /* Start hidden for animation */
+    transform: translateY(20px); /* Start slightly below for animation */
+}
+
+/* Delay animation for each testimonial for a staggered effect */
+.testimonial:nth-child(1) { animation-delay: 0.1s; }
+.testimonial:nth-child(2) { animation-delay: 0.2s; }
+.testimonial:nth-child(3) { animation-delay: 0.3s; }
+.testimonial:nth-child(4) { animation-delay: 0.4s; }
+.testimonial:nth-child(5) { animation-delay: 0.5s; }
+.testimonial:nth-child(6) { animation-delay: 0.6s; }
+
+@keyframes fadeInSlideUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.testimonial p {
+    font-style: italic;
+    margin-bottom: 15px; /* More space below quote */
+    font-size: 1.1em; /* Slightly larger font for quote */
+    color: #e0e0e0;
+}
+
+.testimonial h4 {
+    color: #88b4ff;
+    font-size: 1.05rem; /* Slightly larger name font */
+    font-weight: 500;
+}
+
+.slider-nav {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.nav-btn {
+    background-color: #88b4ff;
+    color: #000;
+    border: none;
+    border-radius: 50%;
+    width: 45px; /* Slightly larger buttons */
+    height: 45px;
+    font-size: 1.3rem; /* Larger icon */
+    cursor: pointer;
+    margin: 0 12px; /* More space between buttons */
+    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.nav-btn:hover {
+    background-color: #a0c2ff;
+    transform: scale(1.1);
+    box-shadow: 0 0 15px rgba(136, 180, 255, 0.6); /* Glow effect on hover */
+}
+
 /* Features */
 .features .feature-box {
     display: flex;
     flex-wrap: wrap;
-    justify-content: center; /* Changed to center to balance items better */
+    justify-content: center;
     gap: 20px;
 }
 
 .features .feature {
-    flex: 1 1 280px; /* Increased base width for features for better readability on desktop, allows shrinking */
-    max-width: 350px; /* Max width to prevent them from becoming too wide */
+    flex: 1 1 280px;
+    max-width: 350px;
     background-color: #1a2333;
     padding: 20px;
     border-radius: 12px;
     border-left: 4px solid #4efc84;
-    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Hover effect */
-    text-align: center; /* Center text within feature box */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    text-align: center;
 }
 
 .features .feature:hover {
@@ -302,13 +465,13 @@ p {
 .services li {
     background-color: #1a2333;
     margin: 10px auto;
-    padding: 15px 20px; /* Increased padding */
+    padding: 15px 20px;
     max-width: 500px;
     border-left: 4px solid #4efc84;
     border-radius: 8px;
     display: flex;
     align-items: center;
-    justify-content: center; /* Center content within list item */
+    justify-content: center;
     transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
@@ -321,82 +484,7 @@ p {
     font-size: 1.5rem;
     color: #88b4ff;
     margin-right: 15px;
-    flex-shrink: 0; /* Prevent icon from shrinking */
-}
-
-
-/* Testimonials */
-.testimonial-slider {
-    display: flex;
-    overflow-x: auto; /* Changed to 'auto' to allow manual scrolling if needed */
-    -webkit-overflow-scrolling: touch; /* Enable smooth scrolling on iOS */
-    gap: 20px;
-    scroll-snap-type: x mandatory;
-    padding-bottom: 10px;
-    margin-bottom: 20px;
-    scrollbar-width: thin; /* Firefox */
-    scrollbar-color: #4efc84 #1a2333; /* Firefox */
-}
-
-.testimonial-slider::-webkit-scrollbar {
-    height: 8px; /* Height of horizontal scrollbar */
-}
-
-.testimonial-slider::-webkit-scrollbar-track {
-    background: #1a2333; /* Color of the track */
-    border-radius: 10px;
-}
-
-.testimonial-slider::-webkit-scrollbar-thumb {
-    background-color: #4efc84; /* Color of the scroll thumb */
-    border-radius: 10px;
-    border: 2px solid #1a2333; /* Padding around thumb */
-}
-
-
-.testimonial {
-    min-width: 300px; /* Keep minimum width consistent */
-    width: 90%; /* Responsive width for smaller screens */
-    max-width: 400px; /* Max width to prevent it from getting too wide on larger screens */
-    background: #1a2333;
-    padding: 20px;
-    border-radius: 12px;
-    scroll-snap-align: center;
-    flex-shrink: 0; /* Prevent items from shrinking */
-    border: 1px solid #2d3f56;
-    transition: box-shadow 0.3s ease;
-    text-align: center;
-    margin: 0 auto; /* Center individual testimonials within the overflow container */
-}
-
-.testimonial:hover {
-    box-shadow: 0 4px 15px rgba(136, 180, 255, 0.2);
-}
-
-.slider-nav {
-    text-align: center;
-    margin-top: 20px;
-}
-
-.nav-btn {
-    background-color: #88b4ff;
-    color: #000;
-    border: none;
-    border-radius: 50%;
-    width: 40px;
-    height: 40px;
-    font-size: 1.2rem;
-    cursor: pointer;
-    margin: 0 10px;
-    transition: background-color 0.3s ease, transform 0.3s ease;
-    display: inline-flex; /* Use flexbox for centering icon */
-    align-items: center;
-    justify-content: center;
-}
-
-.nav-btn:hover {
-    background-color: #a0c2ff;
-    transform: scale(1.1);
+    flex-shrink: 0;
 }
 
 /* Events */
@@ -407,7 +495,7 @@ p {
     border-left: 4px solid #88b4ff;
     border-radius: 8px;
     transition: background-color 0.3s ease;
-    text-align: left; /* Align text left for event details */
+    text-align: left;
 }
 
 .event-timeline .event:hover {
@@ -420,17 +508,17 @@ p {
     justify-content: center;
     gap: 10px;
     flex-wrap: wrap;
-    max-width: 600px; /* Limit form width */
-    margin: 0 auto; /* Center the form */
+    max-width: 600px;
+    margin: 0 auto;
 }
 
 .newsletter-form input[type="email"] {
-    padding: 12px; /* Increased padding */
+    padding: 12px;
     border-radius: 8px;
     border: none;
-    flex-grow: 1; /* Allow input to grow */
-    max-width: 300px; /* Max width for input field */
-    min-width: 200px; /* Min width for input field */
+    flex-grow: 1;
+    max-width: 300px;
+    min-width: 200px;
     background-color: #2d3f56;
     color: #fff;
 }
@@ -440,7 +528,7 @@ p {
 }
 
 .newsletter-form button {
-    padding: 12px 25px; /* Increased padding */
+    padding: 12px 25px;
     background-color: #4efc84;
     border: none;
     border-radius: 8px;
@@ -482,7 +570,7 @@ p {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 0; /* Remove default margin */
+    margin-bottom: 0;
 }
 
 .faq-toggle-icon {
@@ -494,13 +582,13 @@ p {
     color: #d3d3d3;
     padding-top: 15px;
     text-align: left;
-    display: none; /* Hidden by default */
+    display: none;
     border-top: 1px solid #2d3f56;
     margin-top: 15px;
 }
 
 .faq-item.active .faq-toggle-icon {
-    transform: rotate(45deg); /* Plus to X */
+    transform: rotate(45deg);
 }
 
 /* About Us Section */
@@ -537,8 +625,8 @@ p {
     padding: 20px;
     text-align: center;
     border-radius: 10px;
-    width: 200px; /* Fixed width, consider using max-width and flex-basis */
-    max-width: 90%; /* Added max-width for responsiveness */
+    width: 200px;
+    max-width: 90%;
     border: 1px solid #2d3f56;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
@@ -553,7 +641,7 @@ p {
     height: 100px;
     border-radius: 50%;
     margin-bottom: 10px;
-    object-fit: cover; /* Ensure image covers the area */
+    object-fit: cover;
     border: 3px solid #4efc84;
 }
 
@@ -594,9 +682,8 @@ footer a:hover {
 .contact-info .fas {
     margin-right: 10px;
     color: #4efc84;
-    flex-shrink: 0; /* Prevent icon from shrinking */
+    flex-shrink: 0;
 }
-
 
 /* Scroll Animations */
 .fade-in {
@@ -626,91 +713,114 @@ footer a:hover {
         width: 100%;
     }
     .header-logo-title {
-        flex-direction: column; /* Stack logo and title vertically */
+        flex-direction: column;
         align-items: center;
-        margin-bottom: 15px; /* Space below logo/title on small screens */
-        text-align: center; /* Center text within title box */
+        margin-bottom: 15px;
+        text-align: center;
     }
     .logo {
         margin-right: 0;
-        margin-bottom: 10px; /* Space below logo */
+        margin-bottom: 10px;
     }
     header h1 {
-        font-size: 1.7rem; /* Smaller font for title on phones */
-        white-space: normal; /* Allow title to wrap on very small screens */
+        font-size: 1.7rem;
+        white-space: normal;
         text-align: center;
     }
     header .tagline {
-        font-size: 0.9rem; /* Smaller font for tagline on phones */
-        white-space: normal; /* Allow tagline to wrap */
+        font-size: 0.9rem;
+        white-space: normal;
         text-align: center;
     }
 
-    nav.main-nav {
-        justify-content: center; /* Center nav links on small screens */
-        width: 100%; /* Take full width */
-        margin-top: 10px; /* Space above navigation */
+    /* Hero Navigation adjustments for small screens */
+    .hero-nav {
+        margin-bottom: 30px;
+        padding: 10px 0;
+        border-radius: 8px;
     }
-    nav.main-nav ul {
-        flex-direction: column;
+    .hero-nav ul {
+        flex-direction: column; /* Stack nav links vertically */
         align-items: center;
-        width: 100%;
     }
-    nav.main-nav ul li {
+    .hero-nav ul li {
         margin: 8px 0; /* More vertical space */
-        width: 90%; /* Make list item take most of the width */
-        max-width: 250px; /* Limit width of nav items */
+        width: 90%;
+        max-width: 250px;
     }
-    nav.main-nav ul li a {
-        text-align: center;
-        padding: 10px 0; /* More padding for bigger click area */
+    .hero-nav-link {
+        font-size: 1.1rem; /* Smaller font for mobile nav */
+        padding: 8px 0;
+        display: block; /* Make the whole area clickable for each item */
         background-color: #1a2333; /* Background for each link */
         border-radius: 5px;
         transition: background-color 0.3s ease;
     }
-    nav.main-nav ul li a:hover {
+    .hero-nav-link:hover {
         background-color: #2d3f56;
     }
+    .hero-nav-link::before,
+    .hero-nav-link::after {
+        display: none; /* Disable complex animations on mobile for simplicity */
+    }
+
 
     section {
-        padding: 40px 15px; /* Reduced padding for sections on small screens */
+        padding: 40px 15px;
     }
     h2 {
-        font-size: 1.8rem; /* Smaller heading size */
+        font-size: 1.8rem;
     }
     p {
-        font-size: 0.95rem; /* Slightly smaller paragraph text */
+        font-size: 0.95rem;
     }
 
     .scan-pay-text {
-        font-size: 1.5rem; /* Adjust font size */
+        font-size: 1.5rem;
     }
 
     .qr-image {
-        width: 150px; /* Smaller QR code on phones */
+        width: 150px;
         padding: 8px;
     }
 
     .animated-btn {
-        padding: 10px 20px; /* Smaller button padding */
+        padding: 10px 20px;
         font-size: 0.95rem;
     }
 
     .receipt-display {
-        padding: 20px; /* Adjust padding for smaller screens */
+        padding: 20px;
         margin-top: 20px;
     }
     .receipt-title {
-        font-size: 1.4rem; /* Adjust font size for smaller screens */
+        font-size: 1.4rem;
     }
     .receipt-title .fas {
         font-size: 1.2em;
     }
     .receipt-image {
-        max-width: 95%; /* Make receipt image fill more width */
+        max-width: 95%;
     }
     .receipt-note {
         font-size: 0.9em;
+    }
+
+    /* Testimonials adjustment for small screens */
+    .testimonial {
+        min-width: 280px;
+        width: 95%;
+        margin: 0 10px;
+        padding: 20px; /* Slightly reduced padding */
+    }
+    .testimonial p {
+        font-size: 1em; /* Adjust font size */
+    }
+    .nav-btn {
+        width: 38px; /* Smaller buttons */
+        height: 38px;
+        font-size: 1.1rem;
+        margin: 0 8px;
     }
 
     .features .feature-box,
@@ -719,23 +829,17 @@ footer a:hover {
         align-items: center;
     }
     .features .feature {
-        flex: 1 1 90%; /* Feature boxes take almost full width */
-        max-width: 400px; /* Prevent them from getting too wide even on small tablets */
+        flex: 1 1 90%;
+        max-width: 400px;
     }
 
     .services li {
-        max-width: 90%; /* Services list items take more width */
+        max-width: 90%;
         font-size: 0.95rem;
         padding: 12px 15px;
     }
     .service-icon {
         font-size: 1.3rem;
-    }
-
-    .testimonial {
-        min-width: 280px; /* Allow testimonials to be slightly smaller */
-        width: 95%; /* Adjust width for better fit */
-        margin: 0 10px; /* Add some horizontal margin for visual separation */
     }
 
     .newsletter-form {
@@ -745,7 +849,7 @@ footer a:hover {
     .newsletter-form input[type="email"] {
         width: 90%;
         max-width: 300px;
-        margin-bottom: 10px; /* Space between input and button */
+        margin-bottom: 10px;
     }
     .newsletter-form button {
         width: 90%;
@@ -766,7 +870,7 @@ footer a:hover {
     }
 
     .member {
-        width: 160px; /* Smaller member cards */
+        width: 160px;
         padding: 15px;
     }
     .member img {
@@ -790,12 +894,12 @@ footer a:hover {
     footer a {
         margin: 0 5px;
         font-size: 0.8rem;
-        display: block; /* Make links stack vertically */
+        display: block;
         margin-bottom: 5px;
     }
     .contact-info p {
-        flex-direction: column; /* Stack contact info vertically */
-        align-items: flex-start; /* Align text left */
+        flex-direction: column;
+        align-items: flex-start;
         font-size: 0.9rem;
         margin-bottom: 10px;
         text-align: left;
@@ -809,10 +913,13 @@ footer a:hover {
 /* Medium Screens / Tablets (min-width: 768px and max-width: 1024px) */
 @media screen and (min-width: 768px) and (max-width: 1024px) {
     header .tagline {
-        font-size: 0.9rem; /* Slightly smaller tagline */
+        font-size: 0.9rem;
     }
-    .main-nav ul li {
-        margin-left: 20px; /* Adjust navigation spacing */
+    .hero-nav ul li {
+        margin: 0 15px; /* Adjust navigation spacing */
+    }
+    .hero-nav-link {
+        font-size: 1.2rem;
     }
     section {
         padding: 50px 25px;
@@ -821,17 +928,8 @@ footer a:hover {
         font-size: 2.2rem;
     }
     .features .feature {
-        flex: 1 1 30%; /* Allow 3 items per row on tablets */
+        flex: 1 1 30%;
     }
     .testimonial {
         min-width: 320px;
-        width: 45%; /* Allow two testimonials per row to be visible */
-    }
-    .newsletter-form input[type="email"] {
-        width: 280px;
-    }
-    .faq-list {
-        max-width: 90%;
-    }
-    .member {
-        width:
+        width: 45%; /* Allow two testimonials per ro
