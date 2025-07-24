@@ -41,7 +41,7 @@
 
         <button id="simulatePaymentBtn" class="animated-btn main-cta">Secure Payment</button>
 
-        <button id="showReceiptBtn" class="animated-btn secondary-btn" style="display: none;">Receipt Dekhein</button>
+        <button id="showReceiptBtn" class="animated-btn secondary-btn" style="display: none;">Watch Reciept</button>
 
         <div id="receiptDisplay" class="receipt-display" style="display: none;">
             <h3 class="receipt-title"><i class="fas fa-check-circle"></i> Payment Successful!</h3>
@@ -237,13 +237,13 @@
                 showReceiptBtn.textContent = 'Receipt Dikha Raha Hai...';
                 showReceiptBtn.disabled = true; // Disable receipt button during display
 
-                // Hide the receipt after 5 seconds
+                // Hide the receipt after 10 seconds
                 receiptTimeoutId = setTimeout(() => {
                     receiptDisplay.style.display = 'none';
                     showReceiptBtn.style.display = 'none'; // Hide receipt button after receipt is shown
                     
                     // Reset payment button to its original state and show it
-                    simulatePaymentBtn.textContent = 'Secure Payment ₹7'; 
+                    simulatePaymentBtn.textContent = 'Secure Payment'; 
                     simulatePaymentBtn.style.display = 'block'; 
                     simulatePaymentBtn.disabled = false; 
                 }, 5000); // 5000 milliseconds = 5 seconds
